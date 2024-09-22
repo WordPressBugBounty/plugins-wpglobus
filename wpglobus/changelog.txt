@@ -1,0 +1,607 @@
+*** WPGlobus - Multilingual WordPress ***
+
+2024-09-01 - version 3.0.0
+* Fix: PHP-8 warnings
+* PHP support: 7.4+
+* No longer supported: All-in-One SEO v3, older versions of Yoast SEO.
+
+2023-06-14 - version 2.12.2
+* Fix: "New posts no longer saving in 2nd language" error introduced in 2.12.1
+
+2023-06-09 - version 2.12.1
+* Fix: (Security) Authentication check in `class-wpglobus.php` function `on_admin_init()`.
+* Fix: (Security) Permission check in `class-wpglobus-customize-options.php` function `action__process_ajax()`.
+* Fix: (Security) Permission check in `class-wpglobus.php` function `on_process_ajax()`.
+* (Core) General code cleanup using PHPCS (WP and Woo) recommendations. 
+
+2023-05-09 - version 2.12.0
+* (Compatibility) Tested up to WordPress 6.2
+* (Builders/RankMathSEO) Added filter multilingual strings for the options page.
+
+2023-02-16 - version 2.10.10
+*  Fix: (Vendor/ACF) `Uncaught Error: Class name must be a valid object or a string`.
+
+2023-02-02 - version 2.10.9
+* (Vendor/Yoast) Fix `Warning: Undefined array key image`.
+* (Core/Recommendations) Visual improvements.
+
+2023-01-18 - version 2.10.8
+* Added: (Core) `WPGlobusEditPost Sidebar` plugin v.2.
+* (Core/Recommendations) New recommendations box.
+
+2022-12-17 - version 2.10.7
+* Fix: (Core) Cleanup tool failed under MySQL8/PHP8.
+* Fix: (Core) Locale determined incorrectly under some conditions.
+
+2022-11-18 - version 2.10.6
+* Tested up to: 6.1
+* Fix: (Core) Don't run JS script if jQuery is not defined.
+
+2022-10-30 - version 2.10.5
+* Fix: (Core/Filters) Translations not loaded correctly in some situations (refactored `\WPGlobus_Filters::filter__get_locale`).
+* Fix: (Elementor) Update language switcher.
+* Fix: (Core) Broken translations file `wpglobus-fr_FR.po`.
+* Tweak: (Core) When we do not have a specific country translation, try using what we have (WIP).
+
+2022-09-04 - version 2.10.4
+* (Core/Widgets) Update for the widgets block editor v.2.0.
+
+2022-08-09 - version 2.10.3
+* (Core/Filters) Code cleanup: `filter__get_locale()` in `class-wpglobus-filters.php`.
+* (Options/Languages table) Added the `vi.alt.png` flag.
+* (Internal) `package.json` - patches for the new `npm`.
+
+2022-07-28 - version 2.10.2
+* (Core/WPGlobus About) Removed obsolete information.
+* (Core/WPGlobus) Added filter `wpglobus_disable_switcher` in the `WPGlobus` class.
+* Fix: PHP81 notice about passing `null` to `untrailingslashit`.
+* Fix: PHP81 notice about passing `null` to `str_replace`.
+* Updated WPGlobus language switcher examples file.
+
+2022-07-12 - version 2.10.1
+* (Vendor/Yoast) Added filters for the user Open Graph title and description, Schema Graph name and description.
+* (Core) Fixed PHP 8.1 notice about `add_submenu_page()` parameter.
+
+2022-06-16 - version 2.10.0
+* (Compatibility) Tested up to WordPress 6.0
+* (Core/Post Types) Added the `elementor-hf` post type to the `"hidden types"` list.
+
+2022-01-08 - version 2.8.11
+* (Options/Languages table) Added the `Frisian` flag image.
+* (Customizer) Exclude incompatible themes: `Mesmerize`, `Highlight`, and `Enfold`.
+
+2021-12-28 - version 2.8.10
+* (Core/Post Types) Added the `wp_navigation` post type to the `"hidden types"` list.
+* (Core/Options) Updated the compatibility info.
+* (Options/Languages table) Added `Frisian` language.
+
+2021-12-22 - version 2.8.9
+* (Vendors) Updated doc.
+* (Configs) Updated `rank-math-seo.json` file.
+* (Core/WPGlobus) Updated doc.
+* (Core/WPGlobus_WP) Added `is_rest_api_request` function.
+* (Core/Builders) Added: builder attributes.
+* (Core/Meta) Added: support term meta data.
+* (Core/Config) Added: support REST API requests.
+* (Builder/Config) Set builder language for REST API requests.
+* (Vendor/Config) Added: handling term meta fields.
+* (Vendor/Yoast) Filter taxonomy term name in the `Schema Generator`.
+* (Vendor/RankMathSEO) Don't check post IDs.
+* (Builders/RankMathSEO) Added: support multilingual columns on `edit.php` page.
+* (Builders/RankMathSEO) Added: support for the REST API requests.
+
+2021-11-19 - version 2.8.8
+* Version 2.8.7 was a broken build. Fixed.
+
+2021-11-12 - version 2.8.7
+* (Vendor/Yoast) Fixed: posts having the `Canonical` meta field set were missing in the `sitemap.xml`.
+
+2021-11-05 - version 2.8.6
+* (Core/Widgets) Added support for the widgets block editor.
+
+2021-10-31 - version 2.8.5
+* (Core/Filters) Update `widget_display_callback` filter.
+
+2021-10-14 - version 2.8.4
+* (Core/Widget class) Added `widget_title` filter.
+* (Vendor/Yoast) Fixed PHP Notice: `Undefined index: _yoast_wpseo_title`.
+* (Builders/Yoast) Added compatibility with Yoast from v.17.3.
+* (Core/Media) Translate post title in submit box.
+
+2021-09-25 - version 2.8.3
+* (Core/JS) Added trigger handler `wpglobus_post_title`.
+* (Core) Added second $post parameter for `wpglobus_show_language_tabs` filter.
+* (Core/Builder) Added second $post parameter for `wpglobus_show_language_tabs` filter.
+
+2021-09-02 - version 2.8.2
+* (Core/JS) Set new value using `val` function instead of `attr` for menu item labels and titles.
+
+2021-07-25 - version 2.8.1
+* (Vendor/Yoast) Fixed PHP Notice: `Undefined index: description`.
+* (Vendor/Yoast) Fixed an issue with `og:title` meta.
+
+2021-07-18 - version 2.8.0
+* (Compatibility) Tested up to WordPress 5.8
+* (Core/Options) Added `use_widgets_block_editor` option.
+* (Core/Config) Added `use_widgets_block_editor` option.
+* (Core/Controller) Added `use_widgets_block_editor` filter.
+* (Core) Class `WPGlobus_Admin_Gutenberg` is deprecated.
+* (Core/JS) Checking existing WPGlobusWidgets before init.
+* (Core/JS) Don't run with WP 5.8 when the block editor enables for managing widgets.
+
+2021-07-14 - version 2.7.14
+* (Vendor/Yoast) Fixed incorrect meta description output in some situations.
+* (Vendor/Yoast) Additional multilingual filters.
+
+2021-07-12 - version 2.7.13
+* (Vendor/Yoast) Init `TinyMCE` description editor on the `term.php` page.
+* (Vendor/Yoast) Fixed incorrect rewriting taxonomy metas during the update process.
+
+2021-07-10 - version 2.7.12
+* (Core/JS) Force init `WPGlobusDialogApp` before using.
+
+2021-07-07 - version 2.7.11
+* (Vendor/Yoast) Fixed issue with the breadcrumbs title (generated from the taxonomy title) in the `Schema Presenter`.
+* (Core/Post Types) Added the `elementor_snippet` post type to the `"hidden types"` list.
+
+2021-06-27 - version 2.7.10
+* (Vendor/Yoast) Fixed an issue with using variables in post descriptions.
+
+2021-06-25 - version 2.7.9
+* (Vendor/ACF) Added the current language name for the ACF fields metabox in the Builder mode.
+* (Vendor/ACF) Added filtering of the field array before it is updated.
+* (Core) Added language switcher to the admin bar for the posts in the Builder mode.
+* (POMO) Ukrainian translations completed (thanks go to Jack Willson)
+
+2021-06-22 - version 2.7.8
+* (Vendor/ACF) Fixed an issue with empty ACF fields.
+
+2021-06-18 - version 2.7.7
+* (Vendor/Yoast) Added filter for `wpseo_titles` option.
+* (Core/Post Types) Added  the `WP MyLinks`, `Ninja Forms` plugins post types to the `"hidden types"` list.
+
+2021-06-09 - version 2.7.6
+* (Vendor/ACF) Updated doc.
+* (Vendor/ACF) Added init param for WPGlobus_Vendor_Acf class.
+* (Vendor/ACF) Added `translatableClass` key in localizing script.
+* (Vendor/ACF) Set `translatableClass` for elements in Builder mode.
+* (Vendor/ACF) Perform a global search and replace in JS.
+
+2021-06-04 - version 2.7.5
+* (Customizer) Added check/uncheck all fields option in Fields Settings section.
+
+2021-06-03 - version 2.7.4
+* (Vendor/Yoast) Fixed issue with attachment caption in Schema Presenter.
+* (Core/Options) Avoid warning when `get_plugins` tries to open non-existing folder.
+
+2021-04-20 - version 2.7.3
+* (Vendor/Yoast) Fixed issue with meta description when homepage displays latest posts.
+
+2021-04-15 - version 2.7.2
+* (Core/Gutenberg) Activated access to the standard widgets edit page when Gutenberg plugin is active.
+
+2021-04-03 - version 2.7.1
+* (Core/Recommendations) Using `class` instead of `id` for recommendation box.
+* (Core/JS) Omit element name checking to using elements with the same `name` to make it as multilingual.
+
+2021-04-01 - version 2.7.0
+* (Compatibility) Tested up to WordPress 5.7
+* (Core/Post Types) Added  the `SlidersPack` plugin post type to the `"hidden types"` list.
+* (Vendor/Yoast) Fixed issue with empty taxonomy meta description.
+
+2021-03-09 - version 2.6.8
+* (Core) Added HTML entities to convert in JS.
+
+2021-03-05 - version 2.6.7
+* (Core/JS) Fixed `Uncaught TypeError: Cannot read property nodeName of null`.
+* (Core/JS) Tweak: Frontend cookies set with `SameSite=strict` attribute.
+
+2021-03-02 - version 2.6.6
+* (Core) If a builder's file is missing, write a message to the webserver error log file (in `WP_DEBUG` mode only).
+* (Core/ACF) Revised loading `WPGlobus_Acf` and `WPGlobus_Vendor_Acf` classes.
+* (Core/Post Types) Added  the `Simple Custom CSS and JS`, `Content Blocks (Custom Post Widget)` plugins' post types to the `"hidden types"` list.
+* (Vendors) Added ACF support.
+* (Vendor/ACF) Updated doc.
+* (Vendor/ACF) Revised `WPGlobus_Acf_2` class.
+* (Vendor/ACF) Added `WPGlobus_Vendor_Acf` class.
+* (Vendor/ACF) Updated JS.
+
+2021-02-06 - version 2.6.5
+* (Core/Plugin Install) Added `WPGlobus Multilingual Popups` info box to the plugins list.
+* (Core/Post Types) Added  the `Popup Builder` plugin post types to the `"hidden types"` list.
+
+2021-02-05 - version 2.6.4
+* (Core/Plugin Install) Added `WPGlobus for Ultimate Member` info box to the plugins list.
+* (Core/Post Types) Added  the `Popup Maker` plugin post types to the `"hidden types"` list.
+
+2021-01-30 - version 2.6.3
+* (Vendor/Yoast) Fixed issue with empty Open Graph description.
+* (Updater) Missing assets in the ZIP file.
+
+2021-01-27 - version 2.6.2
+* (Core) Added `wpglobus_show_title_fields` filter.
+* (Core/Post Types) Added  the `Ultimate Member` plugin post types to the `"hidden types"` list.
+
+2021-01-23 - version 2.6.1
+* (Core/Options) Added handling of actions for the tabs.
+* (Core/Controller) Added filter `googlesitekit_canonical_home_url`.
+* (Core/WP_Options) Fixed PHP Notice: `Array to string conversion`.
+* (Core/Plugin Install) Fixed `uasort` warning.
+* (Core) Code clean-up.
+* (Vendor/RankMathSEO) Typo.
+* (Core/Updater) Updater v.1.0.10.
+
+2020-12-21 - version 2.6.0
+* (Compatibility) Admin and Builders JavaScript code refactored to work with WordPress 5.6.*
+* (Core) Revised filters on `widgets.php` page.
+* (Core/WidgetsJS) Code refactored for Image widgets.
+
+2020-12-03 - version 2.5.23
+* (Vendor/Yoast) Fixed filter for the post title when post meta is empty.
+
+2020-12-02 - version 2.5.22
+* (Vendor/Yoast) Added filters for the taxonomy title, description, Open Graph title and description.
+* (Vendor/Yoast) Fixed filter for the post title.
+
+2020-11-27 - version 2.5.21
+* (Customizer) WPGlobus Customizer is switched off for the `NewYork City` theme.
+* (Customizer) CSS tweak for the `description` field.
+
+2020-11-22 - version 2.5.20
+* (Core/Recommendations) Added admin notices about required versions of WordPress PHP.
+
+2020-11-20 - version 2.5.19
+* (Options/Languages table) Added Georgian language and flag image.
+* (Vendor/Yoast) Added multilingual support for the fields in the Social tab.
+	
+2020-11-15 - version 2.5.18
+* (Builders/Pods) Fixed `Uncaught Error: Call to a member function fields() on bool`.
+
+2020-11-15 - version 2.5.17
+* (Core/JS) Fixed `Uncaught TypeError: Cannot read property of undefined`.
+* (Core/JS) Using `val` function instead of `attr`.
+* (Core/Admin) CSS tweak for the `edit slug` box.
+* (Core/Config) Changed the priority for `plugins_loaded` action.
+* (Core/Config Builder) Check `$GLOBALS['WPGlobus']` for an array to prevent an occurring error `Cannot use object of type WPGlobus as array`.
+* (Core/Utils) Fixed `current_url()` warning when plugin deactivated with WP-CLI.
+* (Core) Do not decode special characters.
+* (Builders/Pods) Added support for the `phone` and `wysiwyg` fields of `Pods – Custom Content Types and Fields`.
+* (Core/Post Types) Added  the `3D FlipBook Dflip Lite` plugin and `OceanWP` theme's post types to the `"hidden types"` list.
+* (Options/Languages table) Installed languages moved to the top of the table.
+
+2020-11-01 - version 2.5.16
+* (Core/Meta) Fixed PHP Warning: count(): Parameter must be an array or an object that implements Countable.
+* (Vendor/Yoast) Removed unneeded code. Small tweaks.
+
+2020-10-25 - version 2.5.15
+* (Core/Filters) Don't apply multilingual filter  on disabled post types (issue #90).
+* (Core/Options) Fixed URL for the second language on the REST API tab.
+* (Core/Post Types) Added  the `Getwid`, `Web Stories` plugins' post types to the `"hidden types"` list.
+
+2020-10-14 - version 2.5.14
+* (Builders/Gutenberg) Language switcher CSS tweaks to prevent showing oversize flag images in some themes.
+* (Core/Post Types) Added post types of the `Gutenberg` plugin to the hidden types array.
+
+2020-10-06 - version 2.5.13
+* (Core/Post Types) Added post types of the `Schema & Structured Data for WP & AMP` plugin to the hidden types array.
+* (Core/Options) Added `anchor` attribute to the render `WPGlobusOptions_wpglobus_dropdown` class.
+* (Core/Options) Minor code tweaks.
+
+2020-10-03 - version 2.5.12
+* (Core/Options) Minor code tweaks.
+
+2020-10-01 - version 2.5.11
+* (Core/Post Types) Added post types of the `FooGallery`, `Modula Image Gallery`, and `Kali Forms` plugins to the hidden types array.
+* (Vendor/Yoast) Filtering the `rel` `prev` and `next` URLs generated by `Yoast SEO`.
+
+2020-09-30 - version 2.5.10
+* (Core/Options) Start the sections settings function on the WPGlobus Options page only.
+* (Core/RestAPI) Register `translation` field for public post types.
+* (Builders/Gutenberg) Language switcher tweaks.
+* (Vendor/Yoast) Added filter `wpglobus_wpseo_localize_url`.
+
+2020-09-28 - version 2.5.9
+* (Core/Options) Omit `"REST API"` section for WordPress version before 5.5.
+
+2020-09-27 - version 2.5.8
+* (Core/Options) Added `"REST API"` section to the Options Panel.
+
+2020-09-25 - version 2.5.7
+* (Core) Registered a new field, `translation`, in the REST API response for posts.
+
+2020-09-23 - version 2.5.6
+* (Core) Added `has_translation` function.
+
+2020-09-22 - version 2.5.5
+* (Builders/Elementor) Added support for the Elementor Kit loading CSS.
+
+2020-09-19 - version 2.5.4
+* (Core/Options) Handling `li_class` attribute for section.
+* (Core/Post Types) Added post type of the `Comments – wpDiscuz` plugin to the hidden types array.
+
+2020-09-13 - version 2.5.3
+* (Core) Added `WP_USER_EDIT_PAGE` constant to set the User edit page name.
+* (Core/Options) Added support of subsections on the WPGlobus Options page.
+* (Core/Post Types) Added post types of `Molongui Author Box` plugin to the hidden types array.
+* (Builders/Elementor) Added language switcher for Elementor v.3.
+
+2020-08-24 - version 2.5.2
+* (Vendor/ACF) Added filter for the Image field type. (Note: Multilingual value will be accessible in the "Builder" mode.)
+
+2020-08-19 - version 2.5.1
+* (Vendor/Yoast) Added: Taxonomies can now output multilingual meta descriptions and localized URLs.
+* (Core) Interface improvements on the `term.php` page.
+
+2020-08-18 - version 2.5.0
+* (Compatibility) Admin and Builders JavaScript code refactored to work with WordPress 5.5.*
+* (Core/WidgetsJS) Fixed issue with non-unique ID.
+* (Options/Languages table) Installed languages moved to the top of the table.
+* (Core/WidgetsJS) Set multilingual field for the title only.
+
+2020-08-01 - version 2.4.17
+* (Core/WidgetsJS) Use `WPGlobusCoreData.language` instead of `WPGlobusCoreData.default_language`; Hide unneeded dialog icons.
+
+2020-07-28 - version 2.4.16
+* (Integration) The [Advanced Post List](https://wordpress.org/plugins/advanced-post-list/) plugin is now supported.
+
+2020-07-26 - version 2.4.15
+* (Core/Options) Options Panel: CSS tweaks.
+* (Vendor/Yoast) Added filter for changing the output of description for graph `webpage`.
+* (Core/Post Types) Added post types of `Advanced Post List` plugin to the hidden types array.
+
+2020-07-09 - version 2.4.14
+* (Core/Post Types) Added post type of `GDPR Cookie Consent` plugin to the hidden types array.
+* (Vendor/Yoast) Fixed PHP Notice: Trying to get property 'ID' of non-object.
+* (Vendor/Yoast) Revised code of `get_wpseo_meta` function.
+* (Vendor/Yoast) Added filter for changing output of graph `webpage`.
+
+2020-07-03 - version 2.4.13
+* (Builder/Elementor) Disable Elementor support for all post types that don't use the Elementor builder.
+
+2020-07-02 - version 2.4.12
+* (Core/Class WPGlobus) Added `do_action` to add to the `publish` metabox.
+* (Builder/Elementor) Disable Elementor's support for posts that don't use Elementor builder.
+
+2020-06-22 - version 2.4.11
+* (Block Editor) Initializing to work with Elementor.
+
+2020-06-15 - version 2.4.10
+* (Core/Filters) Prevent handling of incorrect widget instance's settings.
+
+2020-06-02 - version 2.4.9
+* (Vendor/All In One SEO Pack) Interface improvements on post edit page.
+
+2020-05-20 - version 2.4.8
+* (Core/Clean-Up Tool) Updated description.
+
+2020-05-13 - version 2.4.7
+* (Vendor/Yoast) Added filter of schema generator.
+* (Vendor/Yoast) Updated filter for the post title that has no multilingual value for the frontend.
+
+2020-05-11 - version 2.4.6
+* (Vendor/Yoast) Correct defining post type for frontend.
+
+2020-05-08 - version 2.4.5
+* (Core) Correct setting initial language tab in Standard/Classic mode on the `post.php` page.
+* (Vendor/Yoast) Added JS script for the dashboard.
+
+2020-05-07 - version 2.4.4
+* (Builders/RankMathSEO) Added filters for title and description on the frontend.
+
+2020-05-06 - version 2.4.3
+* (Builders/RankMathSEO) Added `WordPress SEO Plugin – Rank Math` support (Beta stage).
+* (Core/Plugin Install) Added info box before add-ons list.
+
+2020-04-29 - version 2.4.2
+* (Vendor/Yoast) Support multilingual breadcrumbs for posts, pages, and taxonomies.
+* (Core/Plugin Install) Added status `"available"` for the premium add-ons.
+
+2020-04-26 - version 2.4.1
+* (Vendor/Yoast) Set support for minimum version Yoast SEO Premium v12.
+
+2020-04-25 - version 2.4.0
+* (Vendor/Yoast) Added support Yoast SEO from v.14.
+* (Core) Code clean-up.
+* (Core) Interface improvements on the `post.php` page.
+* (Core/Builder) Interface improvements on the `post.php` page.
+* (Core/AdminPost) Localized the `Preview Changes` link.
+* (Core/Meta) Removed caching meta data.
+* (Builders/Gutenberg) Prevent multiple clicking on language switcher.
+
+2020-04-11 - version 2.3.12
+* (Customizer) WPGlobus Customizer is switched off for `Gwangi` theme.
+* (Core/Post Types) Added post type of `rtMedia` plugin to the hidden types array.
+* (Core/Post Types) Added post types of `Divi` theme to the hidden types array.
+
+2020-04-07 - version 2.3.11
+* (Builders/Yoast SEO) Added `WPGLOBUS_YOAST_PLUGIN_FILE` constant to set the custom file path.
+
+2020-04-03 - version 2.3.10
+* (Core/Options) Fixed PHP Notice "Undefined index" in the `"Custom Code"` section.
+
+2020-04-02 - version 2.3.9
+* (Vendor/All In One SEO Pack) Support All In One SEO Pack 3.4.2.
+
+2020-04-01 - version 2.3.8
+* (Vendor/Acf) Added filter for the `Number` field type. (Note: Multilingual numbers will be accessible in the "Builder" mode.)
+
+2020-03-25 - version 2.3.7
+* (Core/Builders) Fixed PHP Warning "The first argument should be either a string or an integer" in the `array_key_exists` function.
+* (Vendor/Acf) Code clean-up.
+
+2020-03-03 - version 2.3.6
+* (Builders/Elementor) Prevent `The preview could not be loaded` for language in draft status.
+* (Core/Admin) Exclude some meta from being multilingual.
+* (Core/Post Types) Added post types of `WPForms Lite` plugin and `Bodega` theme to hidden types array.
+
+2020-03-02 - version 2.3.5
+* (Core/Builders) Fixed the `Undefined offset` PHP Notice in the `is_gutenberg()` method.
+
+2020-02-29 - version 2.3.4
+* Added: option to set the `hreflang` tag format.
+
+2020-02-27 - version 2.3.3
+* Added: (Builders/Elementor) handle multiple file names.
+
+2020-02-14 - version 2.3.2
+* Added: (Core/Post Types) `wpglobus_hidden_types` filter.
+
+2020-02-12 - version 2.3.1
+* Added: (Core/Post Types) post types of `Elementor Pro` to the hidden types array.
+* Added: (Core/WPGlobusDialogApp) `afterOpen` callback.
+
+2020-02-03 - version 2.3.0
+* Added: (Builders/Pods) Support (partially - Standard and Custom Post Types) `Pods – Custom Content Types and Fields`.
+
+2020-01-31 - version 2.2.35
+* Added: (Core/Builders) `WPGlobus_Builder_Update_Post` class.
+* Internal: (Debug) Updated `WPGlobus_Admin_Debug` class.
+
+2020-01-18 - version 2.2.34
+* Fixed: (Core/Builders) Incorrect behavior with empty `show_in_rest`.
+* Added: (Core/Post Types) Post types of `Pods` to hidden types array.
+* Internal: (HelpDesk) Adjust the height of the Tech Info textarea.
+
+2020-01-17 - version 2.2.33
+* Fixed: (Core/Meta) Prevent updating post meta when `$builder` is not set.
+* Added: (Builders/Yoast SEO) Filter for `_yoast_wpseo_focuskw` at frontend.
+
+2020-01-11 - version 2.2.32
+* Added: (Core/Post Types) post type of `Mailchimp for WordPress` to the list of hidden types.
+* Internal: (Options/Templates) updated the `"theme info"` template.
+
+2020-01-09 - version 2.2.31
+* Added: (Builders/Elementor) Support the `CSS Print Method` for the `"External File"` option only.
+* Fixed: (Core/Block Editor, Builders/Gutenberg) Setting of the switcher button in the Block Editor when Gutenberg is active.
+
+2020-01-08 - version 2.2.30
+* Fixed: (Customizer) Disable sections to prevent using elements with for `Google Fonts Typography` and `Google Fonts for WordPress` plugins.
+
+2019-12-25 - version 2.2.29
+* Fixed: (Builders/Gutenberg) Slash stripping on Gutenberg editor.
+* Added: (Core/Post Types) Added post types of `NextGEN Gallery` to the list of hidden types.
+
+2019-12-02 - version 2.2.28
+* Added: (Options) new style for `Add new Language` button.
+* Fixed: (Customizer) Disable sections to prevent using elements with no `id` attribute with the `Startkit` theme.
+
+2019-11-14 - version 2.2.27
+* Added: (Vendor/Acf) If editor is hidden by ACF, we hide WPGlobus, too.
+
+2019-11-11 - version 2.2.26
+* Fixed: (Core/Builders) Don't initialize the Builders class when initial attributes are empty.
+* Internal: (Builders/Block Editor) Changed the admin bar builder label to `Block Editor`.
+
+2019-11-09 - version 2.2.25
+* Fixed: (Vendor/Yoast) Don't start JS if support module was not defined.
+* Fixed: (Vendor/Yoast) Start the support module while the corresponding option is missing.
+
+2019-11-08 - version 2.2.24
+* Added: (Core/Builders) Check if block editor is used with specific post types.
+
+2019-11-06 - version 2.2.23
+* Internal: (Options) Moved theme info to `Customize` section.
+* Internal: (Core) Get hidden post types from the corresponding class.
+
+2019-10-31 - version 2.2.22
+* Added: (Core/Media) Media files support for the standard and Builder modes.
+* Added: (Vendor/Acf) Filter for the `Url` field type.
+
+2019-10-29 - version 2.2.21
+* Fixed: (Core) Uncaught `TypeError: WPGlobusYoastSeo.init is not a function`.
+* Internal: (Builders/Gutenberg) Updated save post message.
+
+2019-10-16 - version 2.2.20
+* Added: (Core/Post Types) Hide Gutenberg's post types.
+* Added: (Core/Recommendation) A link to the "Recommendations" tab from the `plugins.php` page.
+* Added: (Admin/HelpDesk) Get subject from `$_GET` array.
+* Added: (Vendor/Yoast) Support Yoast SEO from v.12.
+* Added: (Vendor/Yoast) Support Yoast SEO Premium from v.12.(Beta stage).
+* Added: (Core/WPGlobusDialogApp) `afterSave` callback.
+
+2019-10-02 - version 2.2.16
+* Added: (Vendor/Yoast) Filters for `SEO Title`, `Meta Desc` on `edit.php` page.
+
+2019-09-18 - version 2.2.15
+* Fixed: (Builders/Gutenberg) TypeError `Cannot read property 'PluginSidebarMoreMenuItem' of undefined`.
+
+2019-09-07 - version 2.2.14
+* Added: (Options/Builders) Pinned button type option for builder mode.
+* Added: (Flag) `serbska_malka.png`.
+
+2019-08-12 - version 2.2.13
+* Fixed: `extract_text()` regex to support line breaks in strings.
+
+2019-08-06 - version 2.2.12
+* Fixed: (Config) PHP warnings for clean install.
+
+2019-08-05 - version 2.2.11
+* Fixed: Default locale and flag for Taiwan.
+* Fixed: (Vendor/All In One SEO Pack) Do not set the keywords field in according to the option.
+* Added: (WPGlobus Admin interface) More translated strings in `de_DE` and `sv_SE`.
+* Added: (Config) (Options/Сompatibility) `builder_post_types` option.
+* Added: (Config/Builder) `post_types` property.
+* Added: (Options/Welcome) Notices to `Welcome` tab.
+* Added: (Vendor/All In One SEO Pack) `wpglobus-translatable` class for multilingual fields.
+
+2019-06-07 - version 2.2.10
+* Fixed: (Vendor/All In One SEO Pack) The detection of version less than 3.0.
+
+2019-06-04 - version 2.2.9
+* Added: (Vendor/All In One SEO Pack) Support `All In One SEO Pack` 3.
+
+2019-06-03 - version 2.2.8
+* Internal: (Core/Admin bar menu) Moved JS script to footer.
+* Fixed: (Builders/Yoast) Don't run builder mode for undefined post type, e.g. `slides` from Bridge theme.
+
+2019-06-01 - version 2.2.7
+* Internal: (Core/Admin bar menu) Revised WPGlobus language menu in admin bar.
+
+2019-05-31 - version 2.2.6
+* Fixed: (Builders/Elementor) Revised the language switcher JS script.
+* Added: (Builders/Elementor) Localized permalink for the `View Page` button.
+* Internal: (Core/Config Builder] Added `is_default_language` function.
+
+2019-05-27 - version 2.2.5
+* Fixed: (Core/JS) Fixed first buttons group alignment issue in tinyMCE editor (standard mode).
+
+2019-05-25 - version 2.2.4
+* Fixed: (Builders/Gutenberg) Don't start JS script on disabled post type.
+
+2019-05-22 - version 2.2.3
+* Added: (Builders/Gutenberg) New language switcher.
+* Internal: (Builders/JS_Composer) Start `js_composer` as a builder with WP 5.
+
+2019-05-15 - version 2.2.2
+* Fixed: (Vendor/Acf) Changed attribute to 'height' for text elements.
+
+2019-05-14 - version 2.2.1
+* Fixed: (Vendor/Acf) Fixed hidden WPGlobus dialog start icon with ACF Pro from v.5.8
+* Fixed: (Customizer) Fixed PHP Warning `Invalid argument supplied for foreach`.
+
+2019-05-12 - version 2.2.0
+* Compatibility: WordPress 5.2
+* Fixed: (Customizer) WPGlobus language selector alignment for WordPress 5.2.
+
+2019-05-04 - version 2.1.15
+* Internal: (Builders/Elementor) Beta-3 version of the `Elementor` support.
+
+2019-04-29 - version 2.1.14
+* Fixed: (Core/JS) Issue with an incorrect behavior of the dialog form with `hidden` class.
+* Added: (Core/Builders) Element `admin_bar_builder_label` to the WP admin bar.
+* Internal: (Flags) Added `purple.globe` icon.
+
+2019-04-19 - version 2.1.13
+* Internal: (Builders/Elementor) Beta-2 version for Elementor support.
+
+2019-04-06 - version 2.1.12
+* Internal: (Core/Options) Updated the `Compatibility` tab on the `WPGlobus Options` page.
+
+2019-03-09 - version 2.1.11
+* Fixed: (Vendor/ACF) Do not reset the `table` field of the `ACF:Table Field` plugin.
+* Fixed: Do not filter meta and multilingual fields for no-builder pages.
+
+2019-02-23 - version 2.1.10
+* Compatibility: new JS for Admin and Builders support, to work with WordPress 5.1.*
+
+(cut)
