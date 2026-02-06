@@ -6,6 +6,10 @@
  * @package WPGlobus
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Admin page central.
  *

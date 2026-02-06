@@ -5,6 +5,10 @@
  * @package WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Helpers for building admin pages.
  */

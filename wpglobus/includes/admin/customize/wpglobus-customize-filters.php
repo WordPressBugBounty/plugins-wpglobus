@@ -6,6 +6,11 @@
  *
  * @package WPGlobus\Admin\Customizer
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 add_filter( 'wpglobus_customize_disabled_sections', array( 'WPGlobus_Customize_Filters', 'disable_sections' ) );
 
 if ( ! class_exists( 'WPGlobus_Customize_Filters' ) ) :

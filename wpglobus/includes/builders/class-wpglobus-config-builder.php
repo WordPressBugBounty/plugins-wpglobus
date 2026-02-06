@@ -6,6 +6,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Config_Builder' ) ) :
 
 	class WPGlobus_Config_Builder {
@@ -285,11 +289,11 @@ if ( ! class_exists( 'WPGlobus_Config_Builder' ) ) :
 				} else {
 
 					if ( ! empty( $_REQUEST['language'] ) ) {
-						$language = sanitize_text_field( $_REQUEST['language'] );
+						$language = sanitize_text_field( wp_unslash( $_REQUEST['language'] ) );
 					}
 
 					if ( isset( $_REQUEST[ WPGlobus::get_language_meta_key() ] ) ) {
-						$language = sanitize_text_field( $_REQUEST[ WPGlobus::get_language_meta_key() ] );
+						$language = sanitize_text_field( wp_unslash( $_REQUEST[ WPGlobus::get_language_meta_key() ] ) );
 					}
 				}
 			}
@@ -492,7 +496,7 @@ if ( ! class_exists( 'WPGlobus_Config_Builder' ) ) :
 				if ( empty( $_COOKIE[ $cookie_name ] ) ) {
 					$_cookie_value = false;
 				} else {
-					$_cookie_value = sanitize_text_field( $_COOKIE[ $cookie_name ] );
+					$_cookie_value = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
 				}
 			}
 

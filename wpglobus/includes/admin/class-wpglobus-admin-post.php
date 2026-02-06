@@ -6,6 +6,11 @@
  * @since   2.4
  * @package WPGlobus\Admin
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Admin_Post' ) ) :
 
 	/**

@@ -1,10 +1,14 @@
 <?php
-
 /**
  * Class WPGlobus_Redirect
  *
  * @since   1.8.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class WPGlobus_Redirect {
 
 	/**

@@ -119,10 +119,98 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 			 *
 			 * @since 2.3.11
 			 * @since 2.8.4 Moved to separate file.
+			 * @since 3.0.2 Moved back here (phpcs warning about global variables in the separate file)
 			 */
-			$_addon_dir = dirname( __FILE__ ) . '/yoast_seo/addon-yoast_seo.php';
-			if ( file_exists( $_addon_dir ) ) {
-				require_once $_addon_dir;
+			if ( defined( 'WPSEO_VERSION' ) && version_compare( WPSEO_VERSION, '17.3', '>=' ) ) {
+
+				$_file        = 'wordpress-seo/wp-seo.php';
+				$_plugin_name = 'Yoast SEO';
+				if ( defined( 'WPGLOBUS_YOAST_PLUGIN_FILE' ) ) {
+					$_file        = WPGLOBUS_YOAST_PLUGIN_FILE;
+					$_plugin_name = 'Yoast SEO(' . $_file . ')';
+				}
+
+				$_builder_label = 'Yoast SEO';
+				if ( defined( 'WPSEO_PREMIUM_VERSION' ) ) {
+					$_builder_label = 'Yoast SEO Premium';
+				}
+
+				self::$add_on['yoast_seo'] = array(
+					'id'                      => 'yoast_seo',
+					'role'                    => 'builder',
+					'admin_bar_label'         => 'Add-on',
+					'supported_min_version'   => '23.0',
+					'const'                   => 'WPSEO_VERSION',
+					'plugin_name'             => $_plugin_name,
+					'plugin_uri'              => 'https://wordpress.org/plugins/wordpress-seo/',
+					'path'                    => $_file,
+					'stage'                   => 'production',
+					'pro'                     => false,
+					'admin_bar_builder_label' => $_builder_label,
+				);
+
+				self::$add_on['yoast_seo_premium'] = array(
+					'id'                      => 'yoast_seo',
+					'role'                    => 'builder',
+					'admin_bar_label'         => 'Add-on',
+					'supported_min_version'   => '23.0',
+					'const'                   => 'WPSEO_PREMIUM_VERSION',
+					'plugin_name'             => 'Yoast SEO Premium',
+					'plugin_uri'              => 'https://yoast.com/wordpress/plugins/seo/',
+					'path'                    => 'wordpress-seo-premium/wp-seo-premium.php',
+					'stage'                   => 'production',
+					'pro'                     => true,
+					'admin_bar_builder_label' => 'Yoast SEO Premium',
+				);
+
+			} else {
+
+				if ( file_exists( WP_PLUGIN_DIR . '/wordpress-seo-premium/wp-seo-premium.php' ) ) {
+
+					self::$add_on['yoast_seo'] = array(
+						'id'                    => 'yoast_seo',
+						'role'                  => 'builder',
+						'admin_bar_label'       => 'Add-on',
+						'supported_min_version' => '23.0',
+						'const'                 => 'WPSEO_VERSION',
+						'plugin_name'           => 'Yoast SEO Premium',
+						'plugin_uri'            => 'https://yoast.com/wordpress/plugins/seo/',
+						'path'                  => 'wordpress-seo-premium/wp-seo-premium.php',
+						'stage'                 => 'production',
+					);
+
+				}
+
+				/**
+				 * Update.
+				 *
+				 * @since 2.3.11
+				 */
+				$_file        = 'wordpress-seo/wp-seo.php';
+				$_plugin_name = 'Yoast SEO';
+				if ( defined( 'WPGLOBUS_YOAST_PLUGIN_FILE' ) ) {
+					$_file        = WPGLOBUS_YOAST_PLUGIN_FILE;
+					$_plugin_name = 'Yoast SEO(' . $_file . ')';
+				}
+
+				if ( file_exists( WP_PLUGIN_DIR . '/' . $_file ) ) {
+
+					if ( ! defined( 'WPSEO_PREMIUM_PLUGIN_FILE' ) ) {
+
+						self::$add_on['yoast_seo'] = array(
+							'id'                    => 'yoast_seo',
+							'role'                  => 'builder',
+							'admin_bar_label'       => 'Add-on',
+							'supported_min_version' => '23.0',
+							'const'                 => 'WPSEO_VERSION',
+							'plugin_name'           => $_plugin_name,
+							'plugin_uri'            => 'https://wordpress.org/plugins/wordpress-seo/',
+							'path'                  => $_file,
+							'stage'                 => 'production',
+						);
+
+					}
+				}
 			}
 
 			/**
@@ -132,7 +220,7 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 				'id'                    => 'woocommerce',
 				'role'                  => 'add-on',
 				'config_file'           => 'woocommerce.json',
-				'supported_min_version' => '8.0',
+				'supported_min_version' => '10.0',
 				'const'                 => 'WC_PLUGIN_FILE',
 				'plugin_name'           => 'WooCommerce',
 				'plugin_uri'            => 'https://woocommerce.com',
@@ -238,9 +326,12 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 
 			/**
 			 * Unused
+			 * <code>
 			 * // if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			 * //return false;
-			 * // }*/
+			 * // }
+			 * </code>
+			 */
 
 			/**
 			 * Bail out on empty
@@ -725,7 +816,8 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 				 * // $post_type = '';
 				 * // if ( ! empty( $_post_type[0] ) ) {
 				 * //    $post_type = $_post_type[0];
-				 * // }*/
+				 * // }
+				 */
 
 				$post      = get_post( $post_id );
 				$post_type = ( $post ? $post->post_type : '' );
@@ -1291,7 +1383,6 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 				$version = WPSEO_VERSION;
 
 				if ( version_compare( WPSEO_VERSION, '17.3', '>=' ) ) {
-					// See code in addon-yoast_seo.php
 
 					$id = self::$add_on['yoast_seo']['id'];
 
@@ -1547,7 +1638,7 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 			 */
 			global $wpdb;
 
-			return $wpdb->get_var( $wpdb->prepare( "SELECT post_type FROM $wpdb->posts WHERE ID = %d", $id ) );
+			return $wpdb->get_var( $wpdb->prepare( "SELECT post_type FROM $wpdb->posts WHERE ID = %d", $id ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		}
 
 		/**
@@ -1618,7 +1709,7 @@ if ( ! class_exists( 'WPGlobus_Builders' ) ) :
 			 */
 			global $wpdb;
 
-			self::$post_type = $wpdb->get_var( $wpdb->prepare( "SELECT post_type FROM $wpdb->posts WHERE ID = %d", $post_id ) );
+			self::$post_type = $wpdb->get_var( $wpdb->prepare( "SELECT post_type FROM $wpdb->posts WHERE ID = %d", $post_id ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			return self::$post_type;
 		}

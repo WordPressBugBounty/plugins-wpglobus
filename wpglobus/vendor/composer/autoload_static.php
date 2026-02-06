@@ -6,13 +6,30 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit73ad96349088be86890408600b0d3e35
 {
+    public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WPGLIB\\' => 7,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'WPGLIB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wpglobus/wpglib/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'WPGLIB\\Txt' => __DIR__ . '/..' . '/wpglobus/wpglib/src/Txt.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit73ad96349088be86890408600b0d3e35::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit73ad96349088be86890408600b0d3e35::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit73ad96349088be86890408600b0d3e35::$classMap;
 
         }, null, ClassLoader::class);

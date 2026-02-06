@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGlobus Multilingual\n"
-"POT-Creation-Date: 2024-09-02 16:51+0000\n"
+"POT-Creation-Date: 2026-02-01 02:55+0000\n"
 "PO-Revision-Date: 2015-09-03 17:28+0000\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/wp-translations/"
 "wpglobus-multilingual/language/pl_PL/)\n"
@@ -126,8 +126,8 @@ msgstr ""
 msgid "Add"
 msgstr "Dodaj"
 
-msgid "Multilingual Everything!"
-msgstr "Stwórz wielojęzyczność!"
+msgid "Multilingual WordPress"
+msgstr ""
 
 msgid ""
 "WPGlobus is a family of WordPress plugins assisting you in making "
@@ -139,14 +139,11 @@ msgstr ""
 msgid "Remove the WPGlobus settings (not recommended)"
 msgstr ""
 
-msgid "Multilingual WordPress"
+msgid "note that WPGlobus extensions settings will be removed also!"
 msgstr ""
 
 msgid "Clean-up Tool"
 msgstr ""
-
-msgid "Support"
-msgstr "Wsparcie"
 
 msgid ""
 "WARNING: this operation is non-reversible. It is strongly recommended that "
@@ -580,6 +577,9 @@ msgid ""
 "technical information to your email message."
 msgstr ""
 
+msgid "Go to WPGlobus Plus Options page"
+msgstr ""
+
 msgid "To translate permalinks, please activate the module Slug."
 msgstr ""
 
@@ -592,6 +592,9 @@ msgstr ""
 msgid ""
 "With Publish module, you will be able to write a post in one language and "
 "immediately publish it, not waiting for the translation to other languages."
+msgstr ""
+
+msgid "Go Premium"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -735,6 +738,12 @@ msgstr ""
 
 #. translators: %s are for A tags.
 msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Enter title here"
 msgstr ""
 
 msgid "You must enable Pretty Permalinks to use WPGlobus."
@@ -1134,9 +1143,6 @@ msgstr ""
 msgid "We do not recommend using it on production sites."
 msgstr ""
 
-msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
-msgstr ""
-
 msgid "WordPress version"
 msgstr ""
 
@@ -1269,18 +1275,21 @@ msgstr ""
 msgid "WPGlobus warning: "
 msgstr ""
 
-msgid "https://github.com/WPGlobus/WPGlobus"
-msgstr "https://github.com/WPGlobus/WPGlobus"
+#~ msgid "Multilingual Everything!"
+#~ msgstr "Stwórz wielojęzyczność!"
 
-msgid ""
-"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-"widgets and even custom fields - in multiple languages!"
-msgstr ""
-"Wtyczka do stworzenia WordPress'a wielojęzycznym. Wpisy, strony, menu, "
-"widgety i nawet własne pola - wszystko w wielu językach!"
+#~ msgid "Support"
+#~ msgstr "Wsparcie"
 
-msgid "https://wpglobus.com/"
-msgstr ""
+#~ msgid "https://github.com/WPGlobus/WPGlobus"
+#~ msgstr "https://github.com/WPGlobus/WPGlobus"
+
+#~ msgid ""
+#~ "A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
+#~ "widgets and even custom fields - in multiple languages!"
+#~ msgstr ""
+#~ "Wtyczka do stworzenia WordPress'a wielojęzycznym. Wpisy, strony, menu, "
+#~ "widgety i nawet własne pola - wszystko w wielu językach!"
 
 #~ msgid ""
 #~ "Please contact the theme / plugin author. If they are unable to assist, "

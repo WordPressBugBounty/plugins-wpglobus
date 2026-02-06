@@ -6,6 +6,10 @@
  * @package WPGlobus
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Note the priority '2', and not '0'.
  *
@@ -569,3 +573,19 @@ add_filter(
 		return get_option( 'home' );
 	}
 );
+
+
+/**
+ * Allow 'display' CSS on WPGlobus options page.
+ *
+ * @since 3.0.2
+ */
+add_action( 'admin_init', static function () {
+	if ( WPGlobus_WP::is_plugin_page( WPGlobus::OPTIONS_PAGE_SLUG ) ) {
+		add_filter( 'safe_style_css', static function ( $attr ) {
+			$attr[] = 'display';
+
+			return $attr;
+		} );
+	}
+} );

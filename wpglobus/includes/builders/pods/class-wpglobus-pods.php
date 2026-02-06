@@ -8,6 +8,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Pods' ) ) :
 
 	/**

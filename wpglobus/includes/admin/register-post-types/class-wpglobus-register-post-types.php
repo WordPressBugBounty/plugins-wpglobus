@@ -6,6 +6,10 @@
  * @package WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Register_Post_Types.
  */

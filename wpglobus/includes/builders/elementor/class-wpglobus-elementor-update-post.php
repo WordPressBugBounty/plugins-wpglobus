@@ -6,6 +6,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Elementor_Update_Post.
  */
@@ -52,6 +56,7 @@ if ( ! class_exists( 'WPGlobus_Elementor_Update_Post' ) ) :
 			}
 
 			global $wpdb;
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			$_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d AND post_type = %s LIMIT 1", $postarr['ID'], $postarr['post_type'] ) );
 
 			$fields = array();

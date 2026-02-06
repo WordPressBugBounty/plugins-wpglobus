@@ -6,6 +6,10 @@
  * @package WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Admin_Bar_Menu' ) ) :
 
 	/**

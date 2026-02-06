@@ -1,61 +1,36 @@
 <?php
 /**
- * File: wpglobus.php
- *
- * @package   WPGlobus
- * Author    TIV.NET INC, Alex Gor (alexgff) and Gregory Karpinsky (tivnet)
- * Copyright 2015-2023 TIV.NET INC. / WPGlobus
- * License   http://www.gnu.org/licenses/gpl.txt GNU General Public License, version 3
- */
-
-// <editor-fold desc="WordPress plugin header">
-/**
  * Plugin Name: WPGlobus
- * Plugin URI: https://github.com/WPGlobus/WPGlobus
+ * Version: 3.0.2
+ * Plugin URI: https://wordpress.org/plugins/wpglobus/
  * Description: A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, widgets and even custom fields - in multiple languages!
+ * Author: TIV.NET INC
+ * Author URI: https://woocommerce.com/vendor/tiv-net-inc/
+ * Developer: TIV.NET
+ * Developer URI: https://tivnet.com/
  * Text Domain: wpglobus
  * Domain Path: /languages/
- * Version: 3.0.0
- * Author: WPGlobus
- * Author URI: https://wpglobus.com/
- * Network: false
- * Requires at least: 5.5
- * Requires PHP: 5.6
+ * Requires at least: 6.2
+ * Tested up to: 6.9
+ * Requires PHP: 7.4
+ *
+ * Copyright: © TIV.NET INC.
  * License: GPL-3.0-or-later
  * License URI: https://spdx.org/licenses/GPL-3.0-or-later.html
  */
-// </editor-fold>
-// <editor-fold desc="GNU Clause">
-/**
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 3, as
- * published by the Free Software Foundation.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
-// </editor-fold>
-// Exit if accessed directly
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly
 }
 
-define( 'WPGLOBUS_VERSION', '3.0.0' );
+if ( ! is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	return;
+}
+require_once __DIR__ . '/vendor/autoload.php';
+
+define( 'WPGLOBUS_VERSION', '3.0.2' );
 define( 'WPGLOBUS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPGLOBUS_AJAX', 'wpglobus-ajax' );
-
-/**
- * WP Requirements library.
- *
- * @since   1.6.4
- */
-if ( is_readable( dirname( __FILE__ ) . '/vendor/bemailr/wp-requirements/wpr-loader.php' ) ) {
-	require_once dirname( __FILE__ ) . '/vendor/bemailr/wp-requirements/wpr-loader.php';
-}
 
 /*
  * @todo Get rid of these
@@ -160,9 +135,6 @@ if ( ! defined( 'WPGLOBUS_CUSTOMIZE' ) || WPGLOBUS_CUSTOMIZE ) {
 	require_once dirname( __FILE__ ) . '/includes/admin/class-wpglobus-customize-options.php';
 	WPGlobus_Customize_Options::controller();
 }
-
-// TODO remove this old updater.
-//require_once dirname( __FILE__ ) . '/updater/class-wpglobus-updater.php';
 
 /**
  * TIVWP Updater.

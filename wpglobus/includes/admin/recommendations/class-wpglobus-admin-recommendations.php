@@ -10,6 +10,10 @@
  * @package WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class Admin Recommendations.
  */
@@ -118,7 +122,7 @@ class WPGlobus_Admin_Recommendations {
 			$content = array();
 
 			$link_url     = admin_url( 'admin.php' ) . '?page=' . WPGlobusPlus::WPGLOBUS_PLUS_OPTIONS_PAGE . '&tab=modules';
-			$link_content = esc_html__( 'Go to WPGlobus Plus Options page', 'wpglobus-plus' );
+			$link_content = esc_html__( 'Go to WPGlobus Plus Options page', 'wpglobus' );
 
 			if ( ! class_exists( 'WPGlobusPlus_Slug', false ) ) {
 
@@ -186,7 +190,7 @@ class WPGlobus_Admin_Recommendations {
 			'tab'  => 'recommendations',
 		), admin_url( 'admin.php' ) );
 
-		$recommend_link = '<a style="font-weight: bold;" href="' . $_url . '">' . esc_html__( 'Go Premium' ) . '</a>';
+		$recommend_link = '<a style="font-weight: bold;" href="' . $_url . '">' . esc_html__( 'Go Premium', 'wpglobus' ) . '</a>';
 		array_unshift( $links, $recommend_link );
 
 		return $links;
@@ -350,7 +354,7 @@ class WPGlobus_Admin_Recommendations {
 			esc_html_e( 'To translate permalinks, please activate the module Slug.', 'wpglobus' );
 			echo ' ';
 			// Do not translate.
-			$msg = __( 'Go to WPGlobus Plus Options page', 'wpglobus-plus' );
+			$msg = __( 'Go to WPGlobus Plus Options page', 'wpglobus' );
 
 			echo '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html( $msg ) . '.</a>';
 			self::e_container_end();

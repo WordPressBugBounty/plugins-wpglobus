@@ -6,9 +6,10 @@
  * @global string[] $data
  */
 
-// Exit if accessed directly
+use WPGLIB\Txt;
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly
 }
 
 WPGlobus_Admin_Page::print_header();
@@ -30,7 +31,7 @@ WPGlobus_Admin_Page::print_header();
 		<a href="<?php echo esc_url( WPGlobus_Admin_Page::url_settings() ); ?>"
 				class="nav-tab">
 			<?php WPGlobus_Admin_Page::nav_tab_icon_e( 'Settings' ); ?>
-			<?php esc_html_e( 'Settings' ); ?>
+			<?php Txt::t_html_e('Settings'); ?>
 		</a>
 		<?php
 		/**
@@ -92,13 +93,13 @@ WPGlobus_Admin_Page::print_header();
 		<table class="form-table">
 			<tbody>
 			<tr class="form-field">
-				<th><label for="name"><?php esc_html_e( 'Name' ); ?>:</label></th>
+				<th><label for="name"><?php Txt::t_html_e( 'Name' ); ?>:</label></th>
 				<td><input required="required" type="text" name="name" id="name"
 							value="<?php echo esc_attr( WPGlobus_Admin_HelpDesk::getName() ); ?>" data-lpignore="true"/>
 				</td>
 			</tr>
 			<tr class="form-field">
-				<th><label for="email"><?php esc_html_e( 'Email' ); ?>:</label></th>
+				<th><label for="email"><?php Txt::t_html_e( 'Email' ); ?>:</label></th>
 				<td>
 					<input required="required" type="email" name="email" id="email"
 							value="<?php echo esc_attr( WPGlobus_Admin_HelpDesk::getEmail() ); ?>"
@@ -146,7 +147,7 @@ WPGlobus_Admin_Page::print_header();
 
 		<button class="button-primary" type="submit" name="send_email" id="send_email">
 			<?php WPGlobus_Admin_Page::nav_tab_icon_e( 'Helpdesk' ); ?>
-			<?php esc_html_e( 'Submit' ); ?>
+			<?php Txt::t_html_e( 'Submit' ); ?>
 		</button>
 		<script>
 			// @formatter:off

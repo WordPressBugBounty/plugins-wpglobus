@@ -56,71 +56,96 @@ if ( ! class_exists( 'WPGlobusOptions_wpglobus_ace_editor' ) ) :
 			<?php
 
 			/**
-			 * <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.1/ace.js"
-			 * integrity="sha256-m7pa1Wh06liKoIDP19avGEdTGo+LoDNxeiHhVkq2hVQ=" crossorigin="anonymous"></script>
-			 * <!--suppress JSUnresolvedLibraryURL -->
-			 * <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"
-			 * integrity="sha256-z3YWAUWq4ZqhJwjqxdTFwmXUOkEPpQUpdxWHCZVADA4=" crossorigin="anonymous"></script>
-			 * <!--suppress JSUnresolvedLibraryURL -->
-			 * <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"
-			 * integrity="sha256-j7ahmt6lLS5KOhBLZUivk4/awJlkM8eDP/CYbrCDqRA=" crossorigin="anonymous"></script>
+			 * https://ace.c9.io/
+			 * https://cdn.jsdelivr.net/npm/ace-builds@1.43.6/css/ace.min.css
+			 *
+			 * https://raw.githubusercontent.com/ajaxorg/ace-builds/refs/heads/master/src-min-noconflict/ace.js
+			 * https://raw.githubusercontent.com/ajaxorg/ace-builds/refs/heads/master/src-min-noconflict/mode-javascript.js
+			 * https://raw.githubusercontent.com/ajaxorg/ace-builds/refs/heads/master/src-min-noconflict/worker-javascript.js
+			 * https://raw.githubusercontent.com/ajaxorg/ace-builds/refs/heads/master/src-min-noconflict/mode-css.js
+			 * https://raw.githubusercontent.com/ajaxorg/ace-builds/refs/heads/master/src-min-noconflict/worker-css.js
+			 *
+			 * https://github.com/beautifier/js-beautify
+			 *
+			 * https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.4/beautify.min.js
+			 * https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.4/beautify-css.min.js
 			 */
 
-			$_ver = null;
+			$_url_lib = WPGlobus::plugin_dir_url() . 'lib';
 
-			if ( ! wp_script_is( 'ace-editor-js' ) ) {
-				wp_enqueue_script(
-					'ace-editor-js',
-					'https://cdnjs.cloudflare.com/ajax/libs/ace/1.3.1/ace.js',
-					array(),
-					$_ver,
-					true
-				);
+			$_to_enqueue = array(
+					'ace-editor' => array(
+							'src'     => $_url_lib . '/ace/ace.js',
+							'version' => '1.43.6',
+					),
+					'beautify'   => array(
+							'src'     => $_url_lib . '/js-beautify/beautify.min.js',
+							'version' => '1.15.4',
+					),
+					'beautify-css'   => array(
+							'src'     => $_url_lib . '/js-beautify/beautify-css.min.js',
+							'version' => '1.15.4',
+					),
+			);
+
+			foreach ( $_to_enqueue as $handle => $data ) {
+				if ( ! wp_script_is( $handle ) ) {
+					wp_enqueue_script(
+							$handle,
+							$data['src'],
+							array(),
+							$data['version'],
+							true
+					);
+				}
 			}
 
-			if ( ! wp_script_is( 'beautify-js' ) ) {
-				wp_enqueue_script(
-					'beautify-js',
-					'https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js',
-					array(),
-					$_ver,
-					true
-				);
-			}
-
-			if ( ! wp_script_is( 'beautify-css' ) ) {
-				wp_enqueue_script(
-					'beautify-css',
-					'https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js',
-					array(),
-					$_ver,
-					true
-				);
-			}
 			// @formatter:off
 			?>
 			<script>
 				jQuery(function ($) {
 
-					var editor = ace.edit("wpglobus-options-<?php echo esc_js( $field['id'] ); ?>", {
-						mode: "ace/mode/<?php echo esc_js( $field['mode'] ); ?>",
-						minLines: 20,
-						maxLines: 20,
-						tabSize: 2,
-						showPrintMargin: false
-					});
+					const mode = "<?php echo esc_attr( $field['mode'] ); ?>";
+					const divEditor = "wpglobus-options-<?php echo esc_attr( $field['id'] ); ?>";
+					const editor = ace.edit(divEditor,
+						{
+							mode: `ace/mode/${mode}`,
+							minLines: 20,
+							maxLines: 20,
+							tabSize: 2,
+							showPrintMargin: false
+						});
 
-					var beautify = <?php echo 'css' === $field['mode'] ? 'css_beautify' : 'js_beautify'; ?>;
+					const beautify = 'css' === mode ? css_beautify : js_beautify;
 
-					editor.getSession().setValue(beautify(editor.getValue(), {indent_size: 2}));
+					editor.session.setValue(beautify(editor.getValue(),
+						{
+						"indent_size": "2",
+						"indent_char": " ",
+						"max_preserve_newlines": "2",
+						"preserve_newlines": true,
+						"keep_array_indentation": false,
+						"break_chained_methods": false,
+						"indent_scripts": "normal",
+						"brace_style": "collapse",
+						"space_before_conditional": true,
+						"unescape_strings": false,
+						"jslint_happy": false,
+						"end_with_newline": false,
+						"wrap_line_length": "0",
+						"indent_inner_html": false,
+						"comma_first": false,
+						"e4x": false,
+						"indent_empty_lines": false
+					}));
 
 					$("#form-wpglobus-options").on("submit", function () {
-						document
-							.getElementById("wpglobus-options-<?php echo esc_js( $field['id'] ); ?>_control")
+						const elEditorControl = "wpglobus-options-<?php echo esc_attr( $field['id'] ); ?>_control";
+						document.getElementById(elEditorControl)
 							.value = editor.getValue().replace(/[\s]+/g, " ");
 					});
 
-				});
+				})
 			</script>
 			<?php
 			// @formatter:on

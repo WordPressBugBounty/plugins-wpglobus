@@ -8,6 +8,10 @@
  * @noinspection PhpUndefinedNamespaceInspection
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * See elementor\core\files\css\post.php
  */
@@ -505,7 +509,7 @@ if ( ! class_exists( 'WPGlobus_Elementor_Front' ) ) :
 						$_key     => self::$post_css_meta_key,
 					);
 
-					$result = $wpdb->update( $table, $data, $where );
+					$result = $wpdb->update( $table, $data, $where ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 					if ( ! $result ) {
 						return false;
@@ -531,6 +535,7 @@ if ( ! class_exists( 'WPGlobus_Elementor_Front' ) ) :
 
 				$_key   = 'meta_key'; // For PHPCS
 				$_value = 'meta_value'; // For PHPCS
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 				$result = $wpdb->insert(
 					$table,
 					array(

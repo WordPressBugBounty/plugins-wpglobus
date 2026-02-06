@@ -6,6 +6,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_WP_Options.
  * To filter the options from `wp_options` table.

@@ -5,6 +5,10 @@
  * @package   WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 // Load the Request class.
 require_once dirname( __FILE__ ) . '/class-wpglobus-language-edit-request.php';
 

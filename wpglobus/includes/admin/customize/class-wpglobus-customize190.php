@@ -7,6 +7,10 @@
  * @package    WPGlobus\Admin\Customizer
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Customize' ) ) :
 
 	/**

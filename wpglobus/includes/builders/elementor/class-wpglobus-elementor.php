@@ -11,6 +11,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 use Elementor\Core\Files\Manager;
 
 if ( file_exists( WP_PLUGIN_DIR . '/elementor/core/files/manager.php' ) ) {

@@ -7,6 +7,10 @@
  * @noinspection PhpUnusedParameterInspection
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! function_exists( 'mb_strtolower' ) ) :
 	/**
 	 * Stub

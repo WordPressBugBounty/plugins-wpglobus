@@ -2,9 +2,14 @@
  * Admin dialog styles
  * @package WPGlobus
  */
+// Load the Sass string module, for use in the `unicode` function.
+@use "sass:string";
+
+// Ensure that Unicode characters are embedded in ASCII-encoded form.
 @function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+  @return string.unquote("\"") + string.unquote(string.insert($str, "\\", 1)) + string.unquote("\"");
 }
+
 .wpglobus-wp-admin {
 
   .wpglobus-icon-globe:before {

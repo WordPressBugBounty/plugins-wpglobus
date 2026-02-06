@@ -2,6 +2,11 @@
 /**
  * Class WPGlobus_Config
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class WPGlobus_Config {
 
 	/**

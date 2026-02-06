@@ -5,9 +5,10 @@
  * @package     WPGlobus\Admin\Options
  */
 
-// Exit if accessed directly.
+use WPGLIB\Txt;
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly.
 }
 
 // Load the Request class.
@@ -145,7 +146,7 @@ class WPGlobus_Options {
 
 			if ( wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), self::NONCE_ACTION ) ) {
 
-				$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'wpglobus_option%';" );
+				$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'wpglobus_option%';" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 				wp_safe_redirect( admin_url() );
 				exit();
 
@@ -254,21 +255,6 @@ class WPGlobus_Options {
 					admin_url( 'admin.php' )
 				),
 			)
-		);
-
-		/**
-		 * Enable jQuery-UI touch support.
-		 *
-		 * @link  http://touchpunch.furf.com/
-		 * @link  https://github.com/furf/jquery-ui-touch-punch/
-		 * @since 1.9.10
-		 */
-		wp_enqueue_script(
-			'wpglobus-options-touch',
-			WPGlobus::plugin_dir_url() . 'lib/jquery.ui.touch-punch' . WPGlobus::SCRIPT_SUFFIX() . '.js',
-			array( 'wpglobus-options' ),
-			WPGLOBUS_VERSION,
-			true
 		);
 	}
 
@@ -862,8 +848,7 @@ class WPGlobus_Options {
 	protected function section_featured_images() {
 		return array(
 			'wpglobus_id'  => 'featured_images',
-			// DO NOT TRANSLATE.
-			'title'        => __( 'Featured Images' ),
+			'title'        => Txt::t( 'Featured Images' ),
 			'tab_href'     => WPGlobus_Admin_Page::url_admin_central( 'tab-featured-images' ),
 			'icon'         => 'dashicons dashicons-images-alt',
 			'externalLink' => true,
@@ -1222,7 +1207,7 @@ class WPGlobus_Options {
 			)
 		);
 
-		$txt_save_changes = esc_html__( 'Save Changes' );
+		$txt_save_changes = Txt::t_html( 'Save Changes' );
 
 		$desc_more_languages =
 			esc_html__( 'Choose a language you would like to enable.', 'wpglobus' )
@@ -1537,7 +1522,7 @@ class WPGlobus_Options {
 
 		return array(
 			'wpglobus_id' => 'wpglobus_customizer',
-			'title'       => __( 'Customize' ),
+			'title'       => Txt::t( 'Customize' ),
 			'icon'        => 'dashicons dashicons-admin-appearance',
 			'fields'      => $fields,
 		);
@@ -1634,11 +1619,15 @@ class WPGlobus_Options {
 		/**
 		 * Other fields.
 		 */
+
+		include __DIR__ . '/templates/compatibility.php';
+		include __DIR__ . '/templates/compatibility-beta.php';
+
 		$fields[] =
 			array(
 				'id'    => 'compatibility',
 				'type'  => 'wpglobus_info',
-				'html'  => include dirname( __FILE__ ) . '/templates/compatibility.php',
+				'html'  => wpglobus_template_compatibility(),
 				'class' => 'normal',
 			);
 
@@ -1646,7 +1635,7 @@ class WPGlobus_Options {
 			array(
 				'id'    => 'builder_beta_stage',
 				'type'  => 'wpglobus_info',
-				'html'  => include dirname( __FILE__ ) . '/templates/compatibility-beta.php',
+				'html'  => wpglobus_template_compatibility_beta(),
 				'class' => 'normal',
 			);
 
@@ -2025,21 +2014,7 @@ class WPGlobus_Options {
 		$buffer = array();
 
 		if ( is_readable( $file ) ) {
-			$handle = fopen( $file, 'r' );
-			if ( $handle ) {
-				$_buffer = fgets( $handle );
-				while ( false !== $_buffer ) {
-					$buffer[] = $_buffer;
-					$_buffer  = fgets( $handle );
-				}
-				/**
-				 * // if ( ! feof( $handle ) ) {.
-				 *
-				 * @todo add error handling.
-				 * // }
-				 */
-				fclose( $handle );
-			}
+			$buffer = file( $file, FILE_IGNORE_NEW_LINES );
 		}
 
 		$buffers[ $file ] = $buffer;

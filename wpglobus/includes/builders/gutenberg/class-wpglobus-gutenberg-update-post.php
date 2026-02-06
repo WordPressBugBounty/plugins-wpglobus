@@ -6,6 +6,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 
 	/**
@@ -173,7 +177,7 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 		public function filter__pre_insert_post( $prepared_post, $request ) {
 
 			global $wpdb;
-			$_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d LIMIT 1", $prepared_post->ID ) );
+			$_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d LIMIT 1", $prepared_post->ID ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			$builder_language = WPGlobus::Config()->builder->get_language();
 

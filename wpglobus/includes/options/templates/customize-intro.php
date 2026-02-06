@@ -5,9 +5,10 @@
  * @package WPGlobus/Options
  */
 
-// Exit if accessed directly
+use WPGLIB\Txt;
+
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly
 }
 
 $disabled_themes = WPGlobus_Customize_Themes::disabled_themes();
@@ -70,7 +71,7 @@ $customizer_intro_desc .=
 	esc_html__( 'translation of the navigation menus', 'wpglobus' ) .
 	'<br/> (' .
 	esc_html__( 'to translate, please go to', 'wpglobus' ) .
-	' <a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Menus' ) . '</a>' .
+	' <a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . Txt::t_html( 'Menus' ) . '</a>' .
 	')' .
 	'</li>' .
 	'</ul>';

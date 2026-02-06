@@ -6,6 +6,10 @@
  * @package WPGlobus\Admin\Central
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Admin_Central.
  */
@@ -48,8 +52,8 @@ if ( ! class_exists( 'WPGlobus_Admin_Central' ) ) :
 		 */
 		public static function add_menu() {
 			add_submenu_page(
-				'',
-				'',
+				'-',
+				'Admin Central',
 				'',
 				'manage_options',
 				WPGlobus::PAGE_WPGLOBUS_ADMIN_CENTRAL,

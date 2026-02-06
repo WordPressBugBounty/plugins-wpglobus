@@ -1,4 +1,4 @@
-# Copyright (C) 2024 WPGlobus
+# Copyright (C) 2026 WPGlobus
 # This file is distributed under the same license as the WPGlobus package.
 msgid ""
 msgstr ""
@@ -6,7 +6,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-02 16:51+0000\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Guide"
@@ -88,7 +87,7 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-msgid "Multilingual Everything!"
+msgid "Multilingual WordPress"
 msgstr ""
 
 msgid "WPGlobus is a family of WordPress plugins assisting you in making multilingual WordPress blogs and sites."
@@ -97,13 +96,10 @@ msgstr ""
 msgid "Remove the WPGlobus settings (not recommended)"
 msgstr ""
 
-msgid "Multilingual WordPress"
+msgid "note that WPGlobus extensions settings will be removed also!"
 msgstr ""
 
 msgid "Clean-up Tool"
-msgstr ""
-
-msgid "Support"
 msgstr ""
 
 msgid "WARNING: this operation is non-reversible. It is strongly recommended that you backup your database before proceeding."
@@ -472,6 +468,9 @@ msgstr ""
 msgid "Alternatively, please email %s. Do not forget to copy and paste the technical information to your email message."
 msgstr ""
 
+msgid "Go to WPGlobus Plus Options page"
+msgstr ""
+
 msgid "To translate permalinks, please activate the module Slug."
 msgstr ""
 
@@ -482,6 +481,9 @@ msgid "Translate permalinks with our premium add-on, WPGlobus Plus!"
 msgstr ""
 
 msgid "With Publish module, you will be able to write a post in one language and immediately publish it, not waiting for the translation to other languages."
+msgstr ""
+
+msgid "Go Premium"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -616,6 +618,12 @@ msgstr ""
 
 #. translators: %s are for A tags.
 msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Enter title here"
 msgstr ""
 
 msgid "You must enable Pretty Permalinks to use WPGlobus."
@@ -951,9 +959,6 @@ msgstr ""
 msgid "We do not recommend using it on production sites."
 msgstr ""
 
-msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
-msgstr ""
-
 msgid "WordPress version"
 msgstr ""
 
@@ -1074,13 +1079,4 @@ msgid "Therefore, to avoid any data loss, we do not recommend using this."
 msgstr ""
 
 msgid "WPGlobus warning: "
-msgstr ""
-
-msgid "https://github.com/WPGlobus/WPGlobus"
-msgstr ""
-
-msgid "A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, widgets and even custom fields - in multiple languages!"
-msgstr ""
-
-msgid "https://wpglobus.com/"
 msgstr ""

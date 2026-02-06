@@ -8,6 +8,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Builder_Pods' ) ) :
 
 	/**
@@ -60,6 +64,7 @@ if ( ! class_exists( 'WPGlobus_Builder_Pods' ) ) :
 
 				if ( $post_id > 0 ) {
 
+					// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					$pods_pod = $wpdb->get_results( $wpdb->prepare(
 						"SELECT p.post_name AS name, p.ID, p.post_title AS title, p.post_parent AS parent, pm.meta_value AS type FROM $wpdb->posts as p 
 							LEFT JOIN $wpdb->postmeta AS pm ON pm.post_id = p.ID WHERE p.post_type = %s AND p.post_status = 'publish' 

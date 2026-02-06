@@ -457,7 +457,7 @@ if ( ! class_exists( 'WPGlobus_Widgets' ) ) :
 
 			$update_args['autoload'] = 'yes';
 
-			$result = $wpdb->update( $wpdb->options, $update_args, array( 'option_name' => $option ) );
+			$result = $wpdb->update( $wpdb->options, $update_args, array( 'option_name' => $option ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			if ( ! $result ) {
 				return false;
 			}

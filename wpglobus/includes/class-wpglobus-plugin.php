@@ -6,6 +6,10 @@
  * @since   1.6.1
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Plugin
  */
@@ -76,18 +80,6 @@ abstract class WPGlobus_Plugin {
 				'url_product' => WPGlobus::URL_WPGLOBUS_SITE . 'product/' .
 								 $this->product_slug . '/',
 			) );
-		}
-	}
-
-	/**
-	 * Load PO/MO.
-	 * The parameter must be set by the child class' constructor.
-	 */
-	public function load_translations() {
-		if ( $this->textdomain ) {
-			load_plugin_textdomain( $this->textdomain, false,
-				dirname( $this->plugin_basename ) . '/languages'
-			);
 		}
 	}
 }

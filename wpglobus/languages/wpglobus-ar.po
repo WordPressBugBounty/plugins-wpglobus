@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGlobus Multilingual\n"
-"POT-Creation-Date: 2024-09-02 16:51+0000\n"
+"POT-Creation-Date: 2026-02-01 02:55+0000\n"
 "PO-Revision-Date: 2015-09-03 17:28+0000\n"
 "Last-Translator: Gregory Karpinsky <gregory@tiv.net>, 2018\n"
 "Language-Team: Arabic (http://www.transifex.com/wp-translations/wpglobus-"
@@ -132,8 +132,8 @@ msgstr ""
 msgid "Add"
 msgstr "إضافة"
 
-msgid "Multilingual Everything!"
-msgstr "عدد لغات كل شئ!"
+msgid "Multilingual WordPress"
+msgstr ""
 
 msgid ""
 "WPGlobus is a family of WordPress plugins assisting you in making "
@@ -145,14 +145,11 @@ msgstr ""
 msgid "Remove the WPGlobus settings (not recommended)"
 msgstr "إمسح إعدادات WPGlobus (غير مُفضل)"
 
-msgid "Multilingual WordPress"
+msgid "note that WPGlobus extensions settings will be removed also!"
 msgstr ""
 
 msgid "Clean-up Tool"
 msgstr "أداة التنظيف"
-
-msgid "Support"
-msgstr "الدعم الفني"
 
 msgid ""
 "WARNING: this operation is non-reversible. It is strongly recommended that "
@@ -579,6 +576,9 @@ msgid ""
 "technical information to your email message."
 msgstr ""
 
+msgid "Go to WPGlobus Plus Options page"
+msgstr ""
+
 msgid "To translate permalinks, please activate the module Slug."
 msgstr ""
 
@@ -591,6 +591,9 @@ msgstr ""
 msgid ""
 "With Publish module, you will be able to write a post in one language and "
 "immediately publish it, not waiting for the translation to other languages."
+msgstr ""
+
+msgid "Go Premium"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -734,6 +737,12 @@ msgstr ""
 
 #. translators: %s are for A tags.
 msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Enter title here"
 msgstr ""
 
 msgid "You must enable Pretty Permalinks to use WPGlobus."
@@ -1130,9 +1139,6 @@ msgstr ""
 msgid "We do not recommend using it on production sites."
 msgstr ""
 
-msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
-msgstr ""
-
 msgid "WordPress version"
 msgstr ""
 
@@ -1261,13 +1267,14 @@ msgstr ""
 msgid "WPGlobus warning: "
 msgstr ""
 
-msgid "https://github.com/WPGlobus/WPGlobus"
-msgstr "https://github.com/WPGlobus/WPGlobus"
+#~ msgid "Multilingual Everything!"
+#~ msgstr "عدد لغات كل شئ!"
 
-msgid ""
-"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-"widgets and even custom fields - in multiple languages!"
-msgstr ""
+#~ msgid "Support"
+#~ msgstr "الدعم الفني"
 
-msgid "https://wpglobus.com/"
-msgstr "https://wpglobus.com/"
+#~ msgid "https://github.com/WPGlobus/WPGlobus"
+#~ msgstr "https://github.com/WPGlobus/WPGlobus"
+
+#~ msgid "https://wpglobus.com/"
+#~ msgstr "https://wpglobus.com/"

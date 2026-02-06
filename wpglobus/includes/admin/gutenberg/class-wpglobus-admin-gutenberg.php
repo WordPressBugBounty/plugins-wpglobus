@@ -6,6 +6,10 @@
  * @deprecated 2.8.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Admin_Gutenberg' ) ) :
 
 	/**
@@ -80,7 +84,7 @@ if ( ! class_exists( 'WPGlobus_Admin_Gutenberg' ) ) :
 			}
 
 			if ( $status < 300 || 399 < $status ) {
-				wp_die( esc_html__( 'HTTP redirect status code must be a redirection code, 3xx.' ) );
+				wp_die( 'HTTP redirect status code must be a redirection code, 3xx.' );
 			}
 
 			if ( ! $is_IIS && 'cgi-fcgi' !== PHP_SAPI ) {

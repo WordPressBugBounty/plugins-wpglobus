@@ -13,6 +13,10 @@
  * @package    WPGlobus\Admin\Customizer
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /*
  * wpglobus_option
  * wpglobus_option_flags

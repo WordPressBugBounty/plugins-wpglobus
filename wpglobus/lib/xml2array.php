@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if(!function_exists('icl_xml2array')):
 
 function icl_xml2array($contents, $get_attributes=1) {

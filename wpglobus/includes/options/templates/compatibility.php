@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function wpglobus_template_compatibility(): string {
+
 require_once WPGlobus::plugin_dir_path() . 'includes/builders/class-wpglobus-builders.php';
 
 if ( ! function_exists( 'is_plugin_active' ) ) {
@@ -134,3 +136,4 @@ $compatibility .= '</tbody>';
 $compatibility .= '</table>';
 
 return $compatibility;
+}

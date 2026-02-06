@@ -6,6 +6,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Yoast_SEO_Update_Post' ) ) :
 
 	/**
@@ -78,7 +82,7 @@ if ( ! class_exists( 'WPGlobus_Yoast_SEO_Update_Post' ) ) :
 
 			if ( is_wp_error( $this->tag ) ) {
 
-				$terms = $wpdb->get_results( $wpdb->prepare( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE t.term_id = %d", $tag_ID ) );
+				$terms = $wpdb->get_results( $wpdb->prepare( "SELECT t.*, tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE t.term_id = %d", $tag_ID ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 				if ( ! empty( $terms[0] ) && is_object( $terms[0] ) ) {
 					$this->tag = $terms[0];
 				}
@@ -98,7 +102,7 @@ if ( ! class_exists( 'WPGlobus_Yoast_SEO_Update_Post' ) ) :
 				if ( $lang === $current_language ) {
 
 					0 && wp_verify_nonce( '' );
-					$text = trim( isset($_POST['description']) ? wp_kses_post( $_POST['description'] ) : '' );
+					$text = trim( isset( $_POST['description'] ) ? wp_kses_post( wp_unslash( $_POST['description'] ) ) : '' );
 					if ( ! empty( $text ) ) {
 						$new_desc[ $lang ] = $text;
 					}
@@ -190,7 +194,7 @@ if ( ! class_exists( 'WPGlobus_Yoast_SEO_Update_Post' ) ) :
 			}
 
 			global $wpdb;
-			$_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d AND post_type = %s LIMIT 1", $postarr['ID'], $postarr['post_type'] ) );
+			$_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d AND post_type = %s LIMIT 1", $postarr['ID'], $postarr['post_type'] ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			$fields = array();
 			if ( isset( $postarr['post_title'] ) ) {

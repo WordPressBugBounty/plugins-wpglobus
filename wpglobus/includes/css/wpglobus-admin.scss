@@ -2,8 +2,15 @@
  * Admin styles
  * @package WPGlobus
  */
+
+// Load the Sass string module, for use in the `unicode` function.
+@use "sass:string";
+// color.adjust() replaces darken()
+@use "sass:color";
+
+// Ensure that Unicode characters are embedded in ASCII-encoded form.
 @function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+  @return string.unquote("\"") + string.unquote(string.insert($str, "\\", 1)) + string.unquote("\"");
 }
 
 @mixin dashicon-checkmark() {
@@ -285,7 +292,7 @@ $bg-redux-info: #d3e4f4;
   color: black;
 
   h1 {
-    color: darken($bg-redux-info, 50%);
+    color: color.adjust($bg-redux-info, $lightness: -50%);
     float: left;
     width: 204px;
     margin: 0;
@@ -308,7 +315,7 @@ $bg-redux-info: #d3e4f4;
     float: left;
     display: block;
     height: 100px;
-    border: 1px solid darken($bg-redux-info, 30%);
+    border: 1px solid color.adjust($bg-redux-info, $lightness: -30%);
     background-color: white;
     margin-right: 1em;
 
@@ -390,3 +397,10 @@ $bg-redux-info: #d3e4f4;
   }
 }
 
+.wp-ui-notification a {
+  color: white;
+}
+.wp-ui-notification code {
+  background-color: silver;
+  color: black;
+}

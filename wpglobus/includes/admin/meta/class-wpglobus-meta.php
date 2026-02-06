@@ -10,6 +10,10 @@
  * Author  Alex Gor(alexgff)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 
 	/**
@@ -154,11 +158,8 @@ if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 			 */
 			global $wpdb;
 
-			/**
-			 * Don't auto-modify this SQL query.
-			 */
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-			$prev_meta = $wpdb->get_row( $wpdb->prepare( "SELECT $id_column, meta_value FROM $table WHERE meta_key = %s AND $column = %d", $meta_key, $object_id ) );
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$prev_meta = $wpdb->get_row( $wpdb->prepare( "SELECT %i, meta_value FROM %i WHERE meta_key = %s AND %i = %d", $id_column, $table, $meta_key, $column, $object_id ) );
 
 			if ( is_null( $prev_meta ) ) {
 
@@ -242,7 +243,7 @@ if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 				$field_meta_key => $meta_key,
 			);
 
-			$result = $wpdb->update( $table, $data, $where );
+			$result = $wpdb->update( $table, $data, $where ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			if ( ! $result ) {
 				return false;
@@ -417,23 +418,8 @@ if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 			 */
 			$meta_value = maybe_serialize( $meta_value );
 
-			/**
-			 * Don't auto-modify this SQL query.
-			 */
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-			$meta_ids = $wpdb->get_col( $wpdb->prepare( "SELECT $id_column FROM $table WHERE meta_key = %s AND $column = %d", $meta_key, $object_id ) );
-
-			/**
-			 * Incorrect query.
-			 * $meta_ids = $wpdb->get_col( $wpdb->prepare(
-			 * 'SELECT %s FROM %s WHERE meta_key = %s AND %s = %d',
-			 * $id_column,
-			 * $table,
-			 * $meta_key,
-			 * $column,
-			 * $object_id
-			 * ) );
-			 */
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$meta_ids = $wpdb->get_col( $wpdb->prepare( "SELECT %i FROM %i WHERE meta_key = %s AND %i = %d", $id_column, $table, $meta_key, $column, $object_id ) );
 
 			if ( empty( $meta_ids ) ) {
 
@@ -548,7 +534,7 @@ if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 				$field_meta_key => $meta_key,
 			);
 
-			$result = $wpdb->update( $table, $data, $where );
+			$result = $wpdb->update( $table, $data, $where ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			if ( ! $result ) {
 				return false;
@@ -606,6 +592,7 @@ if ( ! class_exists( 'WPGlobus_Meta' ) ) :
 				global $wpdb;
 
 				$_meta_value =
+					// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					$wpdb->get_col(
 						$wpdb->prepare(
 							"SELECT meta_value FROM $wpdb->postmeta WHERE post_id = %d AND meta_key = %s",

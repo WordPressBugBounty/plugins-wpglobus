@@ -1,5 +1,14 @@
 *** WPGlobus - Multilingual WordPress ***
 
+2026-01-31 - version 3.0.2
+* Fix: option panel broken by incorrect HTML sanitizing
+* Fix: multilingual media JS missing
+* "Plugin Check" security fixes.
+
+2025-12-30 - version 3.0.1
+* Fix: Early translations warning (admin-helpdesk).
+* WP tested up to: 6.9
+
 2024-09-01 - version 3.0.0
 * Fix: PHP-8 warnings
 * PHP support: 7.4+

@@ -5,6 +5,10 @@
  * @package WPGlobus
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Core
  */

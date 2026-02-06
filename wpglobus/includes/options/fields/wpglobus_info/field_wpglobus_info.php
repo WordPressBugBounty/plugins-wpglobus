@@ -44,11 +44,11 @@ if ( ! class_exists( 'WPGlobusOptions_wpglobus_info' ) ) {
 					<p class="subtitle"><?php echo esc_html( $field['subtitle'] ); ?></p>
 				<?php } ?>
 				<?php if ( ! empty( $field['html'] ) ) { ?>
-					<?php echo wp_kses_post( $field['html'] ); ?>
+					<?php echo wp_kses( $field['html'], WPGlobus_WP::allowed_post_tags_extended() ); ?>
 				<?php } ?>
 				<?php if ( ! empty( $field['raw_html'] ) ) { ?>
-					<?php echo wp_kses_post( $field['raw_html'] ); ?>
-				<?php } ?>				
+					<?php echo wp_kses( $field['raw_html'], WPGlobus_WP::allowed_post_tags_extended() ); ?>
+				<?php } ?>
 				<?php if ( ! empty( $field['desc'] ) ) { ?>
 					<p class="description"><?php echo wp_kses_post( $field['desc'] ); ?></p>
 				<?php } ?>

@@ -1,10 +1,14 @@
 <?php
-
 /**
  * Class WPGlobus_Dashboard_News
  *
  * @since 1.7.7
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class WPGlobus_Dashboard_News {
 
 	/**

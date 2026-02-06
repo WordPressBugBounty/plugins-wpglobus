@@ -6,6 +6,12 @@
  * @package WPGlobus
  */
 
+use WPGLIB\Txt;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Filters
  */
@@ -424,7 +430,7 @@ class WPGlobus_Filters {
 
 		global $wpdb;
 
-		$data = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->terms AS terms WHERE terms.name LIKE %s", "%{$multilingual_term}%" ) );
+		$data = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->terms AS terms WHERE terms.name LIKE %s", "%{$multilingual_term}%" ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		if ( count( $data ) > 0 ) {
 			/**
@@ -711,15 +717,14 @@ class WPGlobus_Filters {
 			} elseif ( empty( $saved ) ) {
 				$response['wp_autosave'] = array(
 					'success' => false,
-					'message' => __( 'Error while saving.' ),
+					'message' => Txt::t( 'Error while saving.' ),
 				);
 			} else {
-				$draft_saved_date_format = __( 'g:i:s a' );
+				$draft_saved_date_format = Txt::t( 'g:i:s a' );
 				$response['wp_autosave'] = array(
 					'success' => true,
 					'message' => sprintf(
-					// Translators:
-						__( 'Draft saved at %s.' ), date_i18n( $draft_saved_date_format )
+						Txt::t( 'Draft saved at %s.' ), date_i18n( $draft_saved_date_format )
 					),
 				);
 			}
@@ -837,11 +842,11 @@ class WPGlobus_Filters {
 		$text = WPGlobus_Core::text_filter( $original_text, WPGlobus::Config()->language );
 
 		if ( null === $more ) {
-			$more = __( '&hellip;' );
+			$more = '&hellip;';
 		}
 
 		$text = wp_strip_all_tags( $text );
-		if ( 'characters' === _x( 'words', 'word count: words or characters?' ) && preg_match( '/^utf-?8$/i', get_option( 'blog_charset' ) ) ) {
+		if ( 'characters' === _x( 'words', 'word count: words or characters?', 'wpglobus' ) && preg_match( '/^utf-?8$/i', get_option( 'blog_charset' ) ) ) {
 			$text = trim( preg_replace( "/[\n\r\t ]+/", ' ', $text ), ' ' );
 			preg_match_all( '/./u', $text, $words_array );
 			$words_array = array_slice( $words_array[0], 0, $num_words + 1 );
@@ -958,6 +963,7 @@ class WPGlobus_Filters {
 		}
 
 		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$meta_value = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = %s AND post_id = %d LIMIT 1;",
@@ -1246,7 +1252,7 @@ class WPGlobus_Filters {
 			 * Get option.
 			 */
 			global $wpdb;
-			$result = $wpdb->get_col( "SELECT option_value FROM $wpdb->options WHERE option_name = 'wpseo_taxonomy_meta'" );
+			$result = $wpdb->get_col( "SELECT option_value FROM $wpdb->options WHERE option_name = 'wpseo_taxonomy_meta'" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 			if ( ! empty( $result[0] ) ) {
 				$option_values = maybe_unserialize( $result[0] );

@@ -5,6 +5,9 @@
  * @package WPGlobus\Admin\HelpDesk
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Class WPGlobus_Admin_HelpDesk.
@@ -113,10 +116,14 @@ class WPGlobus_Admin_HelpDesk {
 
 	/**
 	 * Set class variables.
+	 *
+	 * @since 3.0.1 Run on 'init' (early translations warning).
 	 */
-	public static function set_vars() {
-		self::$page_title = __( 'WPGlobus Help Desk', 'wpglobus' );
-		self::$menu_title = __( 'Help Desk', 'wpglobus' );
+	public static function set_vars(): void {
+		add_action( 'init', static function () {
+			self::$page_title = __( 'WPGlobus Help Desk', 'wpglobus' );
+			self::$menu_title = __( 'Help Desk', 'wpglobus' );
+		} );
 	}
 
 	/**
@@ -200,8 +207,8 @@ class WPGlobus_Admin_HelpDesk {
 				return;
 			}
 
-			self::$name  = sanitize_text_field( $_POST['name'] );
-			self::$email = sanitize_email( $_POST['email'] );
+			self::$name  = sanitize_text_field( wp_unslash( $_POST['name'] ) );
+			self::$email = sanitize_email( wp_unslash( $_POST['email'] ) );
 
 			if ( ! self::$name || ! self::$email ) {
 				self::$submission_status  = 'error';
@@ -210,9 +217,9 @@ class WPGlobus_Admin_HelpDesk {
 				return;
 			}
 
-			$message = sanitize_textarea_field( $_POST['details'] );
+			$message = sanitize_textarea_field( wp_unslash( $_POST['details'] ) );
 			if ( ! empty( $_POST['info'] ) ) {
-				$message .= "\n-----\n" . sanitize_textarea_field( $_POST['info'] );
+				$message .= "\n-----\n" . sanitize_textarea_field( wp_unslash( $_POST['info'] ) );
 			}
 
 			$headers = array(

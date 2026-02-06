@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGlobus Multilingual\n"
-"POT-Creation-Date: 2024-09-02 16:51+0000\n"
+"POT-Creation-Date: 2026-02-01 02:55+0000\n"
 "PO-Revision-Date: 2015-09-03 17:28+0000\n"
 "Last-Translator: b178f66ae21091f08a6de73093bc629b_f649941 "
 "<e1032743bd2bca7a0d63bafff0062cdd_813705>, 2019,2021\n"
@@ -136,8 +136,8 @@ msgstr "Мова вказана на сторінці вашого профіл�
 msgid "Add"
 msgstr "Додати"
 
-msgid "Multilingual Everything!"
-msgstr "Все - на всіх мовах!"
+msgid "Multilingual WordPress"
+msgstr ""
 
 msgid ""
 "WPGlobus is a family of WordPress plugins assisting you in making "
@@ -148,14 +148,11 @@ msgstr ""
 msgid "Remove the WPGlobus settings (not recommended)"
 msgstr "Видаліть налаштування WPGlobus (не рекомендується)"
 
-msgid "Multilingual WordPress"
+msgid "note that WPGlobus extensions settings will be removed also!"
 msgstr ""
 
 msgid "Clean-up Tool"
 msgstr "Програма очищення"
-
-msgid "Support"
-msgstr "Підтримка"
 
 msgid ""
 "WARNING: this operation is non-reversible. It is strongly recommended that "
@@ -639,6 +636,9 @@ msgstr ""
 "Ви також можете відправити нам повідомлення на%s. Не забудьте скопіювати "
 "технічну інформацію в текст Вашого повідомлення."
 
+msgid "Go to WPGlobus Plus Options page"
+msgstr ""
+
 msgid "To translate permalinks, please activate the module Slug."
 msgstr "Для перекладу посилань необхідно активувати модуль URL."
 
@@ -651,6 +651,9 @@ msgstr "Переклад посилань можливий за допомого
 msgid ""
 "With Publish module, you will be able to write a post in one language and "
 "immediately publish it, not waiting for the translation to other languages."
+msgstr ""
+
+msgid "Go Premium"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -807,6 +810,12 @@ msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
 msgstr ""
 "Ви також можете використовувати розширення %1$sWPGlobus для мовних віджетів"
 "%2$s"
+
+msgid "About"
+msgstr ""
+
+msgid "Enter title here"
+msgstr ""
 
 msgid "You must enable Pretty Permalinks to use WPGlobus."
 msgstr ""
@@ -1257,9 +1266,6 @@ msgstr "Надається з метою тестування і виявлен�
 msgid "We do not recommend using it on production sites."
 msgstr "Не рекомендується використовувати на робочих сайтах."
 
-msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
-msgstr "Про виниклій проблемі повідомляйте в%1$sслужбу підтримки%2$s."
-
 msgid "WordPress version"
 msgstr "Версія WordPress"
 
@@ -1400,18 +1406,27 @@ msgstr ""
 msgid "WPGlobus warning: "
 msgstr "Попередження WPGlobus:"
 
-msgid "https://github.com/WPGlobus/WPGlobus"
-msgstr "https://github.com/WPGlobus/WPGlobus"
+#~ msgid "Multilingual Everything!"
+#~ msgstr "Все - на всіх мовах!"
 
-msgid ""
-"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-"widgets and even custom fields - in multiple languages!"
-msgstr ""
-"Багатомовні сайти на ВордПресс. Редагуйте тексти записів, сторінок, меню, "
-"віджетів, і т.д. - відразу на декількох мовах!"
+#~ msgid "Support"
+#~ msgstr "Підтримка"
 
-msgid "https://wpglobus.com/"
-msgstr "https://wpglobus.com/ru/"
+#~ msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
+#~ msgstr "Про виниклій проблемі повідомляйте в%1$sслужбу підтримки%2$s."
+
+#~ msgid "https://github.com/WPGlobus/WPGlobus"
+#~ msgstr "https://github.com/WPGlobus/WPGlobus"
+
+#~ msgid ""
+#~ "A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
+#~ "widgets and even custom fields - in multiple languages!"
+#~ msgstr ""
+#~ "Багатомовні сайти на ВордПресс. Редагуйте тексти записів, сторінок, меню, "
+#~ "віджетів, і т.д. - відразу на декількох мовах!"
+
+#~ msgid "https://wpglobus.com/"
+#~ msgstr "https://wpglobus.com/ru/"
 
 #~ msgid "Version %1$s1.9.17%2$s "
 #~ msgstr "Версія%1$s1.9.17%2$s"

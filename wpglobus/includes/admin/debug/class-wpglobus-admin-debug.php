@@ -5,6 +5,10 @@
  * @package WPGlobus\Admin
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Admin_Debug' ) ) :
 
 	/**
@@ -183,7 +187,7 @@ if ( ! class_exists( 'WPGlobus_Admin_Debug' ) ) :
 					 *
 					 * @var array $metas
 					 */
-					$metas = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d", $post->ID ), ARRAY_A );
+					$metas = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id = %d", $post->ID ), ARRAY_A ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 				}
 			} elseif ( 'term.php' === $pagenow ) {
 
@@ -200,7 +204,7 @@ if ( ! class_exists( 'WPGlobus_Admin_Debug' ) ) :
 				 *
 				 * @var array $metas
 				 */
-				$metas = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->termmeta WHERE term_id = %d", $_id ), ARRAY_A );
+				$metas = $wpdb->get_results( $wpdb->prepare( "SELECT meta_key, meta_value FROM $wpdb->termmeta WHERE term_id = %d", $_id ), ARRAY_A ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 			} else {
 				return;
 			}
@@ -215,12 +219,12 @@ if ( ! class_exists( 'WPGlobus_Admin_Debug' ) ) :
 					if ( empty( self::$key ) ) {
 						$query_caption = "SELECT * FROM $wpdb->options WHERE option_name LIKE '%wpseo%' OR option_name LIKE '%yoast%'";
 
-						$results = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name LIKE %s OR option_name LIKE %s", '%wpseo%', '%yoast%' ) );
+						$results = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name LIKE %s OR option_name LIKE %s", '%wpseo%', '%yoast%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					} else {
 						$_key          = self::$key;
 						$query_caption = "SELECT * FROM $wpdb->options WHERE option_name = $_key";
 
-						$results = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name = %s", self::$key ) );
+						$results = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->options WHERE option_name = %s", self::$key ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					}
 					?>
 					<table class="table1">
@@ -335,7 +339,7 @@ if ( ! class_exists( 'WPGlobus_Admin_Debug' ) ) :
 					/**
 					 * Output WPGlobus options.
 					 */
-					$results = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM $wpdb->options WHERE option_name LIKE %s', '%wpglobus%' ) );
+					$results = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM $wpdb->options WHERE option_name LIKE %s', '%wpglobus%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 					?>
 					<table class="table3">
 						<caption>

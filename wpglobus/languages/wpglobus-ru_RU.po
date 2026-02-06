@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGlobus Multilingual\n"
-"POT-Creation-Date: 2024-09-02 16:51+0000\n"
+"POT-Creation-Date: 2026-02-01 02:55+0000\n"
 "PO-Revision-Date: 2015-09-03 17:28+0000\n"
 "Last-Translator: Irina Fedulova <istartlin@gmail.com>, 2020\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/wp-translations/"
@@ -139,8 +139,8 @@ msgstr "Язык указан на странице вашего профиля"
 msgid "Add"
 msgstr "Добавить"
 
-msgid "Multilingual Everything!"
-msgstr "Всё - на всех языках!"
+msgid "Multilingual WordPress"
+msgstr "ВордПресс - на всех языках!"
 
 msgid ""
 "WPGlobus is a family of WordPress plugins assisting you in making "
@@ -151,14 +151,11 @@ msgstr ""
 msgid "Remove the WPGlobus settings (not recommended)"
 msgstr "Удалить настройки WPGlobus (не рекомендуется)"
 
-msgid "Multilingual WordPress"
-msgstr ""
+msgid "note that WPGlobus extensions settings will be removed also!"
+msgstr "настройки расширений WPGlobus будут тоже удалены"
 
 msgid "Clean-up Tool"
 msgstr "Программа очистки"
-
-msgid "Support"
-msgstr "Поддержка"
 
 msgid ""
 "WARNING: this operation is non-reversible. It is strongly recommended that "
@@ -642,6 +639,9 @@ msgstr ""
 "Вы также можете отправить нам сообщение на %s. Не забудьте скопировать "
 "техническую информацию в текст вашего сообщения."
 
+msgid "Go to WPGlobus Plus Options page"
+msgstr "Перейдите к настройкам WPGlobus Плюс"
+
 msgid "To translate permalinks, please activate the module Slug."
 msgstr "Для перевода ссылок необходимо активировать модуль УРЛ."
 
@@ -657,6 +657,9 @@ msgid ""
 msgstr ""
 "С помощью модуля Publish вы сможете опубликовать страницу в одном языке, не "
 "дожидаясь готовности переводов на другие языки."
+
+msgid "Go Premium"
+msgstr "Премиальные"
 
 msgid "WPGlobus Recommends:"
 msgstr "WPGlobus рекомендует:"
@@ -808,6 +811,12 @@ msgstr "Чтобы применить виджет %1$sИзображение%2$
 #. translators: %s are for A tags.
 msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
 msgstr "вы можете использовать расширение %1$sWPGlobus для виджетов%2$s"
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Enter title here"
+msgstr "Введите заголовок"
 
 msgid "You must enable Pretty Permalinks to use WPGlobus."
 msgstr ""
@@ -1004,7 +1013,8 @@ msgstr ""
 msgid ""
 "<strong>Translate URLs</strong> (/my-page/ translates to /fr/ma-page, /es/mi-"
 "pagina and so on);"
-msgstr "<strong>Перевести УРЛы</strong> (/my-page/ станет /fr/ma-page/, /ru/моя-"
+msgstr ""
+"<strong>Перевести УРЛы</strong> (/my-page/ станет /fr/ma-page/, /ru/моя-"
 "страница/ и так далее);"
 
 msgid ""
@@ -1262,9 +1272,6 @@ msgstr "Предоставляется с целью тестирования и
 msgid "We do not recommend using it on production sites."
 msgstr "Не рекомендуется использовать на рабочих сайтах."
 
-msgid "Please report all problems to %1$sWPGlobus Technical Support%2$s."
-msgstr "О возникших проблемах сообщайте в %1$sслужбу поддержки%2$s."
-
 msgid "WordPress version"
 msgstr "Версия WordPress"
 
@@ -1403,16 +1410,3 @@ msgstr ""
 
 msgid "WPGlobus warning: "
 msgstr "Предупреждение WPGlobus: "
-
-msgid "https://github.com/WPGlobus/WPGlobus"
-msgstr "https://github.com/WPGlobus/WPGlobus"
-
-msgid ""
-"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-"widgets and even custom fields - in multiple languages!"
-msgstr ""
-"Многоязычные сайты на ВордПресс. Редактируйте тексты записей, страниц, меню, "
-"виджетов, и т.п. - на нескольких языках сразу!"
-
-msgid "https://wpglobus.com/"
-msgstr "https://wpglobus.com/ru/"

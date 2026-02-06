@@ -6,6 +6,12 @@
  * @package WPGlobus
  */
 
+use WPGLIB\Txt;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobusWidget
  */
@@ -269,7 +275,7 @@ class WPGlobusWidget extends WP_Widget {
 		}
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>"><?php echo esc_html__( 'Title' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>"><?php Txt::t_html_e( 'Title' ); ?></label>
 			<!--suppress HtmlFormInputWithoutLabel -->
 			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
 					name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"

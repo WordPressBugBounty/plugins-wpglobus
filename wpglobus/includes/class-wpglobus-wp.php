@@ -8,6 +8,10 @@
  * @noinspection PhpUnused
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_WP
  */
@@ -421,6 +425,7 @@ class WPGlobus_WP {
 	 * Extend $allowedposttags for kses.
 	 *
 	 * @since 2.12.1
+	 * @since 3.0.2 Added 'value', 'onclick' - to 'input'.
 	 * @return array
 	 */
 	public static function allowed_post_tags_extended() {
@@ -441,6 +446,8 @@ class WPGlobus_WP {
 			'data-order'    => true,
 			'data-language' => true,
 			'disabled'      => true,
+			'onclick'       => true,
+			'value'         => true,
 		);
 
 		return $allowed_post_tags;

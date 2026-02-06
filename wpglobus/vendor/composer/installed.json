@@ -1,34 +1,6 @@
 {
     "packages": [
         {
-            "name": "bemailr/wp-requirements",
-            "version": "2.0.3",
-            "version_normalized": "2.0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bemailr/wp-requirements.git",
-                "reference": "e903973b0dfc1178f89c757bd205327811ea4658"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bemailr/wp-requirements/zipball/e903973b0dfc1178f89c757bd205327811ea4658",
-                "reference": "e903973b0dfc1178f89c757bd205327811ea4658",
-                "shasum": ""
-            },
-            "time": "2016-10-18T23:09:16+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0"
-            ],
-            "description": "A helpful library for checking the prerequisites when activating / running a WordPress plugin.",
-            "keywords": [
-                "wordpress"
-            ],
-            "install-path": "../bemailr/wp-requirements"
-        },
-        {
             "name": "tivwp/updater",
             "version": "1.0.10",
             "version_normalized": "1.0.10.0",
@@ -61,6 +33,41 @@
                 "source": "https://bitbucket.org/tivwp/tivwp-updater/src/c380367c0e30359c16dde53d023208e349257be2/?at=1.0.10"
             },
             "install-path": "../tivwp/updater"
+        },
+        {
+            "name": "wpglobus/wpglib",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "dist": {
+                "type": "path",
+                "url": "../../../../vendorize/WPGLIB",
+                "reference": "4a40d2a45e68f7533c90b92274085f09908c79f0"
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "WPGLIB\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TIV.NET INC",
+                    "homepage": "https://tivnet.com/"
+                }
+            ],
+            "description": "WPGlobus methods",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            },
+            "install-path": "../wpglobus/wpglib"
         }
     ],
     "dev": false,

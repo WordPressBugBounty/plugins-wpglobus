@@ -7,6 +7,10 @@
  * @since   1.9.7.1
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 /**
  * Class WPGlobus_Language_Edit_Request
  */

@@ -164,9 +164,15 @@ ob_start();
 				$_filter = 'action="translate"';
 				$buffer  = $this->config_file_filter( $_compat['file'], $_filter );
 				if ( $buffer ) {
+					?>
+					<tr class="wpglobus-theme-info-spec">
+						<td><b>&bull; <?php echo esc_html( $_compat['file_name'] ); ?>:</b></td>
+						<td>&nbsp;</td>
+					</tr>
+					<?php
 					foreach ( $buffer as $_id => $_value ) :
 						?>
-						<tr class="wpglobus-theme-info-spec hidden">
+						<tr class="wpglobus-theme-info-spec">
 							<td><b><?php echo esc_html( $_filter ); ?></b></td>
 							<td><?php echo esc_html( $_value ); ?></td>
 						</tr>
@@ -228,9 +234,15 @@ if ( ! empty( $parent_theme ) ) {
 				$_filter = 'action="translate"';
 				$buffer  = $this->config_file_filter( $_compat['file'], $_filter );
 				if ( $buffer ) {
+					?>
+					<tr class="wpglobus-theme-info-spec">
+						<td><b>&bull; <?php echo esc_html( $_compat['file_name'] ); ?>:</b></td>
+						<td>&nbsp;</td>
+					</tr>
+					<?php
 					foreach ( $buffer as $_id => $_value ) :
 						?>
-						<tr class="wpglobus-theme-info-spec hidden">
+						<tr class="wpglobus-theme-info-spec">
 							<td><b><?php echo esc_html($_filter); ?></b></td>
 							<td><?php echo esc_html( $_value); ?></td>
 						</tr>

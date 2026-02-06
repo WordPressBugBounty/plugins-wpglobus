@@ -1,11 +1,15 @@
 <?php
-
 /**
  * Class WPGlobus_Media.
  *
  * @since 1.7.3
  * @since 2.2.22
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobus_Media' ) ) :
 
 	class WPGlobus_Media {
@@ -242,11 +246,9 @@ if ( ! class_exists( 'WPGlobus_Media' ) ) :
 			 * WordPress 4.7+ needs a new version of our admin JS.
 			 *
 			 * @since 1.7.0
+			 * @since 3.0.0 Older versions not supported.
 			 */
-			$version = '';
-			if ( version_compare( $GLOBALS['wp_version'], '4.6.999', '>' ) ) {
-				$version = '-47';
-			}
+			$version = '-56';
 
 			wp_register_script(
 				'wpglobus-admin',

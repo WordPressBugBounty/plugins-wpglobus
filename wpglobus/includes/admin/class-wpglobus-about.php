@@ -4,6 +4,13 @@
  *
  * @package   WPGlobus\Admin
  */
+
+use WPGLIB\Txt;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class WPGlobus_About {
 
 	/**
@@ -26,7 +33,7 @@ class WPGlobus_About {
 			<a href="<?php echo esc_url( WPGlobus_Admin_Page::url_settings() ); ?>"
 					class="nav-tab">
 			<?php WPGlobus_Admin_Page::nav_tab_icon_e( 'Settings' ); ?>
-				<?php esc_html_e( 'Settings' ); ?>
+				<?php Txt::t_html_e( 'Settings' ); ?>
 			</a>
 			<?php
 			/**
@@ -138,7 +145,7 @@ class WPGlobus_About {
 						target="_blank"><?php esc_html_e( 'FAQs', 'wpglobus' ); ?></a></li>
 			<li>&bull; <a href="<?php echo esc_url( WPGlobus_Admin_Page::url_helpdesk() ); ?>"
 						target="_blank"><?php esc_html_e( 'Contact Us', 'wpglobus' ); ?></a></li>
-			<li>&bull; <a href="https://wordpress.org/support/plugin/wpglobus/reviews/?filter=5"
+			<li>&bull; <a href="https://wordpress.org/support/plugin/wpglobus/reviews"
 						target="_blank"><?php esc_html_e( 'Please give us 5 stars!', 'wpglobus' ); ?></a>
 				<span class="wpglobus-stars">&#x2606;&#x2606;&#x2606;&#x2606;&#x2606;</span></li>
 
