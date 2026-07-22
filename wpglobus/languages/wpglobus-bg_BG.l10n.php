@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>NULL,'plural-forms'=>'nplurals=2; plural=(n != 1);','language'=>'bg_BG','project-id-version'=>'WPGlobus Multilingual','pot-creation-date'=>'2026-02-01 02:55+0000','po-revision-date'=>'2015-09-03 17:28+0000','messages'=>['Default'=>'По подразбиране','Description'=>'Описание','Name'=>'Име','Subject'=>'Тема','List'=>'Списък','Important notes'=>'Важни забележки','Enable'=>'Позволи','Enabled'=>'Включен','items'=>'артикула','Delete'=>'Изтрий','Status'=>'Статус','Active'=>'Активиране']];

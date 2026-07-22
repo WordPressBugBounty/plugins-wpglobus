@@ -1,5 +1,12 @@
 *** WPGlobus - Multilingual WordPress ***
 
+2026-07-20 - version 3.0.3
+* Added: TIV Globus (Pro) - the successor to WPGlobus Plus and WooCommerce WPGlobus. In-plugin recommendations and the plugin description now point to it.
+* Fix: PHP warnings ("Undefined array key") in the admin bar language switcher when the stored language settings were incomplete.
+* Fix: Block editor (Gutenberg) - resolved issues that could occur under certain conditions when translating posts and pages (language switcher and title/content handling on save and reopen).
+* Removed: Automatic redirect to the About page after activation.
+* WP tested up to: 7.0.2
+
 2026-01-31 - version 3.0.2
 * Fix: option panel broken by incorrect HTML sanitizing
 * Fix: multilingual media JS missing

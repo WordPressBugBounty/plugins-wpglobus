@@ -5,6 +5,10 @@
  * @package     WPGlobus\Admin\Options\Field
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 if ( ! class_exists( 'WPGlobusOptions_table' ) ) {
 
 	/**

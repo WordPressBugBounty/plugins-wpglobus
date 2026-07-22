@@ -520,7 +520,7 @@ class WPGlobus_Gutenberg extends WPGlobus_Builder {
 			'yoastSeo'             => $yoast_seo,
 			'elementor'            => $elementor,
 			'flags_url'            => $flags_url,
-			'store_link'           => WPGlobus::URL_WPGLOBUS_SHOP,
+			'store_link'           => WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/',
 			'__post'               => $__post,
 			'block_editor_tab_url' => $block_editor_tab_url,
 			'options_page_url'     => $options_page_url,

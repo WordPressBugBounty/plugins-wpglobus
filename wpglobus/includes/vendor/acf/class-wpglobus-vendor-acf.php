@@ -529,11 +529,12 @@ if ( ! class_exists( 'WPGlobus_Vendor_Acf' ) ) :
 			}
 			
 			$l10n = array();
-			$l10n['wysiwyg-pretender-tip'] = sprintf( // translators: %s are for A tags.
-				esc_html__( 'To use this field, please activate the %1$sACF Plus%2$s module', 'wpglobus' ),
-				'<a href="'.WPGlobus::URL_WPGLOBUS_SHOP.'wpglobus-plus/#acf" target="_blank" style="text-decoration:underline">',
-				'</a>'
-			);
+			/**
+			 * Removed: the "activate the ACF Plus module" tip promoted a WPGlobus Plus
+			 * feature (multilingual WYSIWYG ACF fields) that TIV Globus does not provide.
+			 * With the `wysiwyg-pretender-tip` key absent, the ACF JS (which guards on
+			 * `'undefined' !== typeof ...`) inserts nothing.
+			 */
 			
 			$data = array(
 				'version' 		    => WPGLOBUS_VERSION,

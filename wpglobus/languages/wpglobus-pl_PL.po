@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
-"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 msgid "Guide"
 msgstr "Instrukcja"
@@ -586,15 +586,15 @@ msgstr ""
 msgid "To use module Publish, please activate it."
 msgstr ""
 
-msgid "Translate permalinks with our premium add-on, WPGlobus Plus!"
+msgid "Translate permalinks with TIV Globus, the successor to WPGlobus Plus!"
 msgstr ""
 
 msgid ""
-"With Publish module, you will be able to write a post in one language and "
-"immediately publish it, not waiting for the translation to other languages."
+"With TIV Globus, you can write a post in one language and publish it "
+"immediately, without waiting for the other translations."
 msgstr ""
 
-msgid "Go Premium"
+msgid "Upgrade to TIV Globus"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -618,6 +618,9 @@ msgid "Accept multiple currencies in your online store!"
 msgstr ""
 
 msgid "Check it out:"
+msgstr ""
+
+msgid "Learn more:"
 msgstr ""
 
 #. translators: %1$s - this plugin name. %2$s - the required PHP version.
@@ -726,19 +729,11 @@ msgstr "Sposób wyboru"
 msgid "You cannot disable the main language."
 msgstr "Nie możesz wyłączyć głównego języka."
 
-msgid "Need a multilingual slug?"
+msgid "Translate slugs with TIV Globus"
 msgstr ""
 
 msgid "*) Available after the menu is saved."
 msgstr "*) Dostępne po zapisaniu menu."
-
-#. translators: %s are for A tags.
-msgid "To have the %1$sImage%2$s widget varying by language,"
-msgstr ""
-
-#. translators: %s are for A tags.
-msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
-msgstr ""
 
 msgid "About"
 msgstr ""
@@ -843,6 +838,23 @@ msgid "Language Widgets"
 msgstr ""
 
 msgid "We Recommend..."
+msgstr ""
+
+msgid "TIV Globus"
+msgstr ""
+
+msgid ""
+"TIV Globus is the successor to WPGlobus - one plugin that combines the core "
+"translation engine, the Plus features, and full WooCommerce support, on the "
+"WooCommerce marketplace."
+msgstr ""
+
+msgid ""
+"All new development happens in TIV Globus. It reads your existing WPGlobus "
+"translations, so switching keeps your content intact."
+msgstr ""
+
+msgid "Learn about TIV Globus"
 msgstr ""
 
 msgid ""
@@ -1085,8 +1097,9 @@ msgstr ""
 
 msgid ""
 "In the REST API response, you can find the %1$stranslation%2$s field, which "
-"shows whether translations exist for the fields %1$stitle%2$s, %1$scontent"
-"%2$s and %1$sexcerpt%2$s or not, for each language. See the screenshot below:"
+"shows whether translations exist for the fields %1$stitle%2$s, "
+"%1$scontent%2$s and %1$sexcerpt%2$s or not, for each language. See the "
+"screenshot below:"
 msgstr ""
 
 msgid "Description:"
@@ -1260,10 +1273,6 @@ msgstr ""
 msgid "Multilingual"
 msgstr ""
 
-#. translators: %s are for A tags.
-msgid "To use this field, please activate the %1$sACF Plus%2$s module"
-msgstr ""
-
 msgid ""
 "Bulk editing of the multilingual titles and descriptions is not supported by "
 "the current version."
@@ -1275,6 +1284,22 @@ msgstr ""
 msgid "WPGlobus warning: "
 msgstr ""
 
+msgid "https://wordpress.org/plugins/wpglobus/"
+msgstr ""
+
+msgid ""
+"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
+"widgets and even custom fields - in multiple languages!"
+msgstr ""
+"Wtyczka do stworzenia WordPress'a wielojęzycznym. Wpisy, strony, menu, "
+"widgety i nawet własne pola - wszystko w wielu językach!"
+
+msgid "TIV.NET INC"
+msgstr ""
+
+msgid "https://woocommerce.com/vendor/tiv-net-inc/"
+msgstr ""
+
 #~ msgid "Multilingual Everything!"
 #~ msgstr "Stwórz wielojęzyczność!"
 
@@ -1283,13 +1308,6 @@ msgstr ""
 
 #~ msgid "https://github.com/WPGlobus/WPGlobus"
 #~ msgstr "https://github.com/WPGlobus/WPGlobus"
-
-#~ msgid ""
-#~ "A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-#~ "widgets and even custom fields - in multiple languages!"
-#~ msgstr ""
-#~ "Wtyczka do stworzenia WordPress'a wielojęzycznym. Wpisy, strony, menu, "
-#~ "widgety i nawet własne pola - wszystko w wielu językach!"
 
 #~ msgid ""
 #~ "Please contact the theme / plugin author. If they are unable to assist, "

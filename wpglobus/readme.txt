@@ -1,92 +1,83 @@
 === WPGlobus ===
 Contributors: tivnetinc, tivnet
 Tags: WPGlobus, localization, multilanguage, multilingual, translate
-Requires at least: 6.2
-Tested up to: 6.9
+Requires at least: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPL-3.0-or-later
 License URI: https://spdx.org/licenses/GPL-3.0-or-later.html
 
-Multilingual/Globalization: URL-based multilanguage with an easy translation interface.
+Multilingual/Globalization: URL-based multilanguage with an easy interface to enter your translations.
 
 == Description ==
 
-**WPGlobus** is a family of WordPress plugins assisting you in translating and maintaining bilingual/multilingual WordPress blogs and sites.
+**WPGlobus** turns your WordPress site into a multilingual one. You choose the languages you want, and WPGlobus adds the fields where you enter your own translations - post and page titles, content, excerpts, categories, tags, and more.
 
-= Quick Start Video =
+= Free and Pro versions =
+
+* Free: **WPGlobus** - this plugin. The essential multilingual tools, free from WordPress.org.
+* Pro: **TIV Globus** - the successor to WPGlobus Plus and WooCommerce WPGlobus. The complete multilingual tools, sold on the WooCommerce.com marketplace.
+
+= WPGlobus allows you to: =
+
+* Enter translations for posts, pages, custom post types, categories, tags, menus, and widgets;
+* Enter translations for the Site Title and Tagline;
+* Enter multilingual SEO titles and meta descriptions - compatible with Yoast SEO (free version);
+* Add one or several languages using custom combinations of country flags, locales, and language names;
+* Give each language its own URL (`example.com/`, `example.com/es/`, `example.com/fr/`, and so on);
+* Switch languages on the front-end with a drop-down menu extension and/or a customizable widget with various display options;
+* Switch the admin interface language from the top bar.
 
 https://www.youtube.com/watch?v=zoTWY9JrXLs
 
-Please also read the [Quick Start Guide](https://wpglobus.com/quick-start/).
+= What is in the Pro version (TIV Globus)? =
 
-= Important Notes: please read before using WPGlobus! =
+Everything in the Free version, plus the ability to:
+
+* Give each page a full translated address, including "slug" (`/my-page/` becomes `/fr/ma-page/`, `/es/mi-pagina/`, and so on);
+* Enter translations for WooCommerce products, categories, and attributes;
+* Use popular page builders (Elementor, Avada, and more) in every language;
+* ...and much more.
+
+https://www.youtube.com/watch?v=s37KofMsKBw
+
+[Get TIV Globus](https://wpglobus.com/tiv-globus/) - the Pro version of WPGlobus. It replaces WPGlobus without losing your settings or translations, and works with or without WooCommerce.
+
+= A free upgrade for our customers =
+
+Already own **WPGlobus Plus** or **WooCommerce WPGlobus**? You can move to TIV Globus at no extra cost. This is a limited-time offer for existing customers.
+
+[Claim your free upgrade](https://wpglobus.com/free-tiv-globus/)
+
+= Important Notes: please read first! =
+
+These notes apply to both **WPGlobus** (free) and **TIV Globus** (Pro).
 
 * NO AUTOMATIC TRANSLATION:
-	* WPGlobus does NOT translate texts automatically! You will **translate texts manually**.
+	* The plugin does NOT translate texts automatically! You **translate texts manually**.
+* IF YOU UNINSTALL, YOU MUST REMOVE THE EXTRA LANGUAGES:
+	* All translations are stored together in a special format: `{:en}English{:}{:fr}French{:}{:es}Spanish{:}`. If the plugin is not active, every language shows at once and your site becomes unreadable. Before you **deactivate and uninstall**, you **must run the cleanup tool** to remove all languages but one. See the details in the plugin's settings.
 * PAGE BUILDERS / COMPOSERS:
-	* WPGlobus supports blocks ("Gutenberg") and WPBakery Page Builder. Other builders, such as "Page Builder by SiteOrigin", "Beaver Builder", Fusion ("Avada"), Elegant ("Divi"), Elementor, etc. have limited or no support.
-* IF YOU UNINSTALL, YOU LOSE TRANSLATIONS:
-	* WPGlobus stores all translations using a special format: `{:en}English{:}{:fr}French{:}{:es}Spanish{:}`. If you decide to **deactivate and uninstall WPGlobus**, you **must run the cleanup tool** to keep only one language. See the details on the "Welcome" tab in the WPGlobus Settings.
+	* Page-builder support is available only in **TIV Globus** (Pro).
 * COOKIES:
-    * WPGlobus use browser cookies to store the selected language in the form `wpglobus-language=xx` where `xx` is a two-letter language code: `en`, `de`, `fr`, etc.
-* NO MULTISITE:
-	* The **multisite** mode (multiple virtual sites sharing a single WordPress installation) is **not tested and not supported**.
-* FREE PLUGIN with PAID EXTENSIONS:
-	* Some functionality is available only with our **premium add-ons**. Details below.
-* OLD PHP / OLD WORDPRESS:
-	* We develop and test our software using the **latest versions of PHP, WordPress, and all plugins**. If you have an older version and something is not working properly - please upgrade before contacting us.
-* MBSTRING:
-	* For the full UTF-8 compatibility and better performance, please make sure that the [Multibyte String](https://www.php.net/manual/en/intro.mbstring.php) PHP extension is enabled.
+	* The plugin uses a browser cookie to remember your language preference. It stores only the language code (such as `en` or `es`) - no personal information.
+* MULTISITE:
+	* The **multisite** mode (multiple virtual sites sharing a single WordPress installation) is **not tested and not officially supported**. It may still work, but use it at your own discretion.
 
-= What is in the FREE version of WPGlobus? =
+= Compatibility with themes and plugins =
 
-The WPGlobus plugin provides you with the general multilingual tools.
+WPGlobus works with any theme or plugin that passes its text through the standard WordPress filters before displaying it - which covers the large majority of them.
 
-* **Manually translate** posts, pages, categories, tags, menus, and widgets;
-* **Add one or several languages** to your WP blog/site using custom combinations of country flags, locales and language names;
-* **Switch the languages at the front-end** using: a drop-down menu extension and/or a customizable widget with various display options;
-* **Switch the Administrator interface language** using a top bar selector;
+Some add-ons that render their own output (sliders, forms, page composers, and the like) are not always multilingual-ready. When you find an element that will not translate, please **let its author know** - the fix is usually small.
 
-The WPGlobus plugin serves as the **foundation** to other plugins in the family.
-
-= When do I need WPGlobus Extensions? =
-
-* To translate URLs (`/my-page/` translates to `/fr/ma-page`, `/es/mi-pagina` and so on);
-* To "postpone" translation to all languages and publish only those that are ready;
-* To have completely separate menus for each language;
-* To translate WooCommerce products and taxonomies;
-* ...and more.
-
-For more details, please check out the extension descriptions on our website:
-
-* [WooCommerce WPGlobus](https://wpglobus.com/product/woocommerce-wpglobus/): adds multilingual capabilities to WooCommerce-based online stores.
-* [WPGlobus Plus](https://wpglobus.com/product/wpglobus-plus/): adds URL fine-tuning, publishing status per translation, and more.
-* [WPGlobus - Mobile Menu](https://wpglobus.com/product/wpglobus-mobile-menu/): makes the WPGlobus language switcher menu compatible with mobile devices and narrow screens.
-* [WPGlobus – Featured Images](https://wpglobus.com/product/wpglobus-featured-images/): Set featured image separately for each language defined in WPGlobus.
-* [WPGlobus – Translate Options](https://wpglobus.com/product/wpglobus-translate-options/): Selective translation of the texts stored in the `wp_options` database table.
-
-= Compatibility with WordPress Themes =
-
-* WPGlobus works correctly with all themes that apply proper filtering before outputting content.
-* Some themes incorporate 3rd party plugins (e.g., sliders, forms, composers) - not all of them are 100% multilingual-ready. When you see elements that cannot be translated, please **tell the theme/plugin authors**.
-* Read more on the topic [here](https://wpglobus.com/documentation/wpglobus-compatibility-with-themes-and-plugins/).
-
-= Compatibility with WordPress Plugins =
-
-We have tested WPGlobus with many plugins. However, since plugins are frequently updated, some adjustments may be required after a new update. We will do our best to monitor and make the necessary changes on our end.
+We test against many popular themes and plugins and follow their updates as closely as we can. Since third-party code changes frequently, an occasional tweak on our side may be needed after an update.
 
 = Permalinks =
 
-**IMPORTANT:** WPGlobus will not work if your URLs look like `example.com?p=123` or `example.com/index.php/category/post/`.
+WPGlobus needs "pretty" permalinks. Go to `Settings -> Permalinks` and pick any structure other than "Plain" (with no `index.php` in it) - URLs like `example.com/?p=123` will not work.
 
-Please go to `Settings->Permalinks` and change the permalink structure to non-default and with no `index.php` in it. If you are unable to do that for some reason, please talk to your hosting provider or systems administrator.
-
-**Note:** WooCommerce adds their own section to the Permalinks. It is important to fill in all the information. For example, you need to specify your Shop Base, for example, `/product/`. If you leave it blank, WooCommerce will try to translate the base (eg `/produkt/` for German), which will result in a 404 error.
-
-= Developing on `localhost` or custom ports =
-
-WPGlobus may not work correctly on development servers having URLs like `//localhost/mysite` or on custom ports like `//myserver.dev:3000`. Please use a proper domain name (a fake one from `/etc/hosts` is OK), and port 80.
+**WooCommerce:** set your store bases explicitly (for example, Shop Base `/product/`). If you leave them blank, WooCommerce may translate the base itself (e.g. `/produkt/` for German), causing 404 errors.
 
 == Installation ==
 
@@ -100,11 +91,6 @@ You can install this plugin directly from your WordPress dashboard:
 Alternatively, see the guide to [Manual Plugin Installation](https://wordpress.org/documentation/article/manage-plugins/#manual-plugin-installation-1).
 
 == Frequently Asked Questions ==
-
-= Please read these first: =
-
-* [The Quick Start Guide](https://wpglobus.com/quick-start/)
-* [Before contacting Support...](https://wpglobus.com/support/before-contacting-wpglobus-support/)
 
 = No automatic translation =
 
@@ -121,24 +107,30 @@ WPGlobus stores all translations using a special format: `{:en}English{:}{:fr}Fr
 
 Please go to the `Admin - Settings - Permalinks` page. Make sure that the `Common Settings` is not set to "Plain" and then press the `Save Changes` button. It should help.
 
-= Is there a PRO version? =
+= What is the difference between WPGlobus and TIV Globus? =
 
-We have a set of add-ons that extend the WPGlobus functionality. Please found them on [our website](https://wpglobus.com).
+**WPGlobus** (this plugin) is the free version, with the essential multilingual tools. **TIV Globus** is the Pro version: it adds translated URLs, WooCommerce, page-builder support, and more. See "Free and Pro versions" near the top for the full comparison, or visit the [TIV Globus page](https://wpglobus.com/tiv-globus/).
 
-**NOTE:** When you install an add-on, such as **WPGlobus Plus**, you must keep the WPGlobus plugin activated!
+= I own WPGlobus Plus or WooCommerce WPGlobus. Are they still supported? =
 
-== Screenshots ==
+Those add-ons have been replaced by **TIV Globus**, which brings their features together in one product. As an existing customer, you can move to TIV Globus at no extra cost - see [the free upgrade](https://wpglobus.com/free-tiv-globus/).
 
-1. The Welcome screen.
-2. Settings panel.
-3. Languages setup.
-4. Attaching language switcher to a menu.
-5. Editing post in multiple languages.
-6. Multilingual Yoast SEO and Featured Images.
-7. Language Switcher widget and Multilingual Editor dialog.
-8. Multilingual WooCommerce store powered by [WooCommerce WPGlobus](https://wpglobus.com/product/woocommerce-wpglobus/).
+= Will my translations and settings carry over to TIV Globus? =
+
+Yes. TIV Globus reads the same storage format as WPGlobus, so your existing translations and language settings are kept. Your content stays compatible with WPGlobus, so you can switch back later if you ever need to.
+
+= Does TIV Globus require WooCommerce? =
+
+No. TIV Globus is sold on the WooCommerce.com marketplace, but it works on any site - with or without WooCommerce.
 
 == Changelog ==
+
+= 3.0.3 =
+* Added: TIV Globus (Pro) - the successor to WPGlobus Plus and WooCommerce WPGlobus. In-plugin recommendations and the plugin description now point to it.
+* Fix: PHP warnings ("Undefined array key") in the admin bar language switcher when the stored language settings were incomplete.
+* Fix: Block editor (Gutenberg) - resolved issues that could occur under certain conditions when translating posts and pages (language switcher and title/content handling on save and reopen).
+* Removed: Automatic redirect to the About page after activation.
+* WP tested up to: 7.0.2
 
 = 3.0.2 =
 * Fix: option panel broken by incorrect HTML sanitizing

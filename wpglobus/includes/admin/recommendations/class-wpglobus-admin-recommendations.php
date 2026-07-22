@@ -90,8 +90,8 @@ class WPGlobus_Admin_Recommendations {
 
 			$content = array();
 
-			$url     = WPGlobus_Utils::url_wpglobus_site() . 'product/wpglobus-plus/#slug';
-			$message = esc_html__( 'Translate permalinks with our premium add-on, WPGlobus Plus!', 'wpglobus' );
+			$url     = WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/';
+			$message = esc_html__( 'Translate permalinks with TIV Globus, the successor to WPGlobus Plus!', 'wpglobus' );
 
 			$message .= ' ';
 
@@ -104,8 +104,8 @@ class WPGlobus_Admin_Recommendations {
 				'linkContent' => $link_content,
 			);
 
-			$url     = WPGlobus_Utils::url_wpglobus_site() . 'product/wpglobus-plus/#publish';
-			$message = esc_html__( 'With Publish module, you will be able to write a post in one language and immediately publish it, not waiting for the translation to other languages.', 'wpglobus' );
+			$url     = WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/';
+			$message = esc_html__( 'With TIV Globus, you can write a post in one language and publish it immediately, without waiting for the other translations.', 'wpglobus' );
 
 			$message .= ' ';
 
@@ -185,12 +185,13 @@ class WPGlobus_Admin_Recommendations {
 	 */
 	public static function filter__plugin_action_links( $links ) {
 
-		$_url = add_query_arg( array(
-			'page' => WPGlobus::OPTIONS_PAGE_SLUG,
-			'tab'  => 'recommendations',
-		), admin_url( 'admin.php' ) );
+		// $_url = add_query_arg( array(
+		// 	'page' => WPGlobus::OPTIONS_PAGE_SLUG,
+		// 	'tab'  => 'recommendations',
+		// ), admin_url( 'admin.php' ) );
+		$_url = WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/';
 
-		$recommend_link = '<a style="font-weight: bold;" href="' . $_url . '">' . esc_html__( 'Go Premium', 'wpglobus' ) . '</a>';
+		$recommend_link = '<a target="_blank" style="font-weight: bold;" href="' . esc_url( $_url ) . '">' . esc_html__( 'Upgrade to TIV Globus', 'wpglobus' ) . '</a>';
 		array_unshift( $links, $recommend_link );
 
 		return $links;
@@ -337,11 +338,11 @@ class WPGlobus_Admin_Recommendations {
 		}
 
 		if ( ! is_plugin_active( 'wpglobus-plus/wpglobus-plus.php' ) ) {
-			$url = WPGlobus_Utils::url_wpglobus_site() . 'product/wpglobus-plus/#slug';
+			$url = WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/';
 			self::e_container_start();
-			esc_html_e( 'Translate permalinks with our premium add-on, WPGlobus Plus!', 'wpglobus' );
+			esc_html_e( 'Translate permalinks with TIV Globus, the successor to WPGlobus Plus!', 'wpglobus' );
 			echo ' ';
-			esc_html_e( 'Check it out:', 'wpglobus' );
+			esc_html_e( 'Learn more:', 'wpglobus' );
 			echo ' ';
 			echo '<a href="' . esc_url( $url ) . '" target="_blank">' . esc_html( $url ) . '</a>';
 			self::e_container_end();

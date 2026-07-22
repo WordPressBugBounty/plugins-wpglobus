@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit73ad96349088be86890408600b0d3e35
 {
     public static $prefixLengthsPsr4 = array (
-        'W' => 
+        'W' =>
         array (
             'WPGLIB\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPGLIB\\' => 
+        'WPGLIB\\' =>
         array (
             0 => __DIR__ . '/..' . '/wpglobus/wpglib/src',
         ),

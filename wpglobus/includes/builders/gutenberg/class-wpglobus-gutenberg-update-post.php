@@ -84,6 +84,60 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 			 * @see WP_REST_Server::dispatch
 			 */
 			add_filter( 'rest_request_after_callbacks', array( $this, 'filter__rest_after_callbacks' ), 10, 3 );
+
+			/**
+			 * Filter the edit-context REST response so the block editor loads the
+			 * title/content/excerpt in the current language, not the raw
+			 * multilingual string (which shows `{:xx}...{:}` in the fields).
+			 *
+			 * @since 3.0.3
+			 */
+			add_filter( 'rest_prepare_post', array( $this, 'filter__rest_prepare_edit' ), 10, 3 );
+			add_filter( 'rest_prepare_page', array( $this, 'filter__rest_prepare_edit' ), 10, 3 );
+		}
+
+		/**
+		 * Callback for 'rest_prepare_post' / 'rest_prepare_page'.
+		 *
+		 * On an edit-context request (the block editor), filter the raw
+		 * title/content/excerpt to the current editing language so the editor does
+		 * not show the raw `{:xx}...{:}` delimiters. The language is the per-post
+		 * sticky meta the builder sets on every edit-page load.
+		 *
+		 * @since 3.0.3
+		 *
+		 * @param WP_REST_Response $response The response object.
+		 * @param WP_Post          $post     The post.
+		 * @param WP_REST_Request  $request  The request.
+		 *
+		 * @return WP_REST_Response
+		 */
+		public function filter__rest_prepare_edit( $response, $post, $request ) {
+
+			if ( 'edit' !== $request->get_param( 'context' ) ) {
+				return $response;
+			}
+
+			$language = get_post_meta( $post->ID, WPGlobus::get_language_meta_key(), true );
+			if ( empty( $language ) ) {
+				$language = WPGlobus::Config()->default_language;
+			}
+
+			$data = $response->get_data();
+
+			foreach ( array( 'title', 'content', 'excerpt' ) as $field ) {
+				if (
+					isset( $data[ $field ]['raw'] )
+					&& is_string( $data[ $field ]['raw'] )
+					&& WPGlobus_Core::has_translations( $data[ $field ]['raw'] )
+				) {
+					$data[ $field ]['raw'] = WPGlobus_Core::text_filter( $data[ $field ]['raw'], $language, WPGlobus::RETURN_EMPTY );
+				}
+			}
+
+			$response->set_data( $data );
+
+			return $response;
 		}
 
 		/**
@@ -206,8 +260,15 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 			 */
 			if ( ! empty( $prepared_post->post_title ) ) {
 				$fields['post_title'] = $prepared_post->post_title;
-				// } else {
-				//$fields['post_title'] = '';
+			} else {
+				/**
+				 * Always merge the title, even when empty for the current language.
+				 * Otherwise clearing one language's title skips the merge and the empty
+				 * value overwrites (wipes) all the other languages.
+				 *
+				 * @since 3.0.3
+				 */
+				$fields['post_title'] = '';
 			}
 
 			/**
@@ -300,13 +361,43 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 			 * @see Network tab in browser console.
 			 */
 			if ( ! is_object( $this->prepared_post ) ) {
+				/**
+				 * Not a REST save - the block editor's metabox compatibility POST
+				 * (meta-box-loader) or an autosave. In the block editor the title,
+				 * content and excerpt are saved authoritatively by the REST request;
+				 * this request only persists metaboxes and carries stale/raw copies
+				 * of those fields. Keep the already-stored (REST-merged) values so
+				 * they cannot overwrite the translations - e.g. wiping the title to
+				 * empty, or copying one language's text into another.
+				 *
+				 * @since 3.0.3
+				 */
+				if ( ! empty( $postarr['ID'] ) ) {
+					global $wpdb;
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+					$_stored = $wpdb->get_row( $wpdb->prepare( "SELECT post_title, post_content, post_excerpt FROM $wpdb->posts WHERE ID = %d LIMIT 1", $postarr['ID'] ) );
+					if ( $_stored ) {
+						foreach ( array( 'post_title', 'post_content', 'post_excerpt' ) as $_field ) {
+							if ( isset( $data[ $_field ] ) ) {
+								$data[ $_field ] = $_stored->$_field;
+							}
+						}
+					}
+				}
 				return $data;
 			}
 
 			$_fields = array( 'post_title', 'post_content', 'post_excerpt' );
 			foreach ( $_fields as $_field ) {
 
-				if ( ! empty( $data[ $_field ] ) && ! empty( $this->prepared_post->$_field ) ) {
+				/**
+				 * Apply the merged value whenever we have one, even if the incoming
+				 * field is empty (a language was cleared) - otherwise the empty value
+				 * would overwrite and wipe the other languages.
+				 *
+				 * @since 3.0.3
+				 */
+				if ( ! empty( $this->prepared_post->$_field ) ) {
 					$data[ $_field ] = $this->prepared_post->$_field;
 				}
 			}

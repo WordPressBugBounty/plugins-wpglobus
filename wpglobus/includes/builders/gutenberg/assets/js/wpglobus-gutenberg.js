@@ -583,7 +583,28 @@ jQuery(document).ready(function($){
 			 * languageListEl.
 			 */
 			function languageListEl() {
-				
+
+				/**
+				 * Disable the switcher on an unsaved page (no ID yet, or still an
+				 * auto-draft): switching language there would create a duplicate
+				 * post. Show the "save draft first" notice until the page is saved.
+				 *
+				 * @since 3.0.3
+				 */
+				var wpgCurrentId = 0;
+				var wpgCurrentStatus = '';
+				try {
+					wpgCurrentId = wp.data.select( 'core/editor' ).getCurrentPostId() || 0;
+					wpgCurrentStatus = wp.data.select( 'core/editor' ).getEditedPostAttribute( 'status' ) || '';
+				} catch ( e ) {}
+				if ( ! wpgCurrentId || 'auto-draft' === wpgCurrentStatus ) {
+					return el(
+						'div',
+						{ key: 0, style: { marginBottom: '20px' }, className: 'wpglobus-switcher-panel__switcher-notice' },
+						WPGlobusGutenberg.i18n.save_post
+					);
+				}
+
 				if ( typeof WPGlobusGutenberg.switcherItems !== 'object' ) {
 					return el( 
 						'div', 
@@ -727,26 +748,7 @@ jQuery(document).ready(function($){
 						  className: 'wpglobus-switcher-panel__switcher-box' 
 						},
 						languageListEl()
-					),		
-					el(
-						Button,
-						{
-						  className: 'wpglobus-switcher-panel__button-link wpglobus-switcher-panel__info',
-						  href: WPGlobusGutenberg.store_link,
-						  isLink: true,
-						  target: "_blank"
-						},
-						__( 'WPGlobus Premium' )
-					),
-					el(
-						Button,
-						{
-						  className: 'wpglobus-switcher-panel__button-link wpglobus-switcher-panel__settings-link',
-						  href: WPGlobusGutenberg.options_page_url,
-						  isLink: true
-						},
-						__( 'WPGlobus Options' )
-					)			
+					)
 				);
 			}
 			
@@ -808,6 +810,34 @@ jQuery(document).ready(function($){
 			 * Main switcher component.
 			 */
 			function MainSwitcher() {
+				/**
+				 * Subscribe to the current post ID so the switcher re-renders once
+				 * a brand-new page autosaves and receives an ID. Then rebuild the
+				 * switch URLs from that ID, so switching language always edits THIS
+				 * post (post.php?post=ID) instead of following post-new.php - which
+				 * would create a duplicate post. While there is no ID yet, the links
+				 * are inert (the user must type/save first).
+				 *
+				 * @since 3.0.3
+				 */
+				var wpgState = wp.data.useSelect( function( select ) {
+					var ed = select( 'core/editor' );
+					return { id: ed.getCurrentPostId(), status: ed.getEditedPostAttribute( 'status' ) };
+				}, [] );
+				var wpgPostId = wpgState.id;
+				var wpgIsNew = ( ! wpgPostId ) || ( 'auto-draft' === wpgState.status );
+				if ( ! wpgIsNew ) {
+					var wpgBase = location.origin
+						+ location.pathname.replace( /[^\/]*$/, WPGlobusGutenberg.postEditPage )
+						+ '?post=' + wpgPostId + '&action=edit';
+					for ( var wpgKey in enabledLanguages ) {
+						refs[ enabledLanguages[ wpgKey ] ] = wpgBase + '&language=' + enabledLanguages[ wpgKey ];
+					}
+				} else {
+					for ( var wpgKeyNew in enabledLanguages ) {
+						refs[ enabledLanguages[ wpgKeyNew ] ] = '#';
+					}
+				}
 				setSwitcherPluginButton();
 				return el(
 					Fragment,

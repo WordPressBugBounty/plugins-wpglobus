@@ -754,27 +754,44 @@ class WPGlobus_Config {
 		$this->set_flag_path();
 
 		/**
+		 * Seed the hard-coded language table (names, locales, flags) so every
+		 * supported language is complete in memory, even when a stored option
+		 * is partial - e.g. when these options are shared with, and were
+		 * written by, another plugin (TIV Globus). Stored values are overlaid
+		 * on top below, so customizations and the enabled set still win.
+		 *
+		 * @since 3.0.3
+		 */
+		$this->set_languages();
+
+		$persist_language_table = false;
+
+		/**
 		 * Get languages name.
 		 * big array of used languages
 		 */
-		$this->language_name = get_option( $this->option_language_names );
-
-		if ( empty( $this->language_name ) ) {
-
-			$this->set_languages();
-			$this->init_language_table();
-
+		$stored_language_name = get_option( $this->option_language_names );
+		if ( empty( $stored_language_name ) ) {
+			$persist_language_table = true;
+		} else {
+			$this->language_name = array_merge( $this->language_name, $stored_language_name );
 		}
 
 		/**
 		 * Get locales.
 		 */
-		$this->locale = get_option( $this->option_locale );
-		if ( empty( $this->locale ) ) {
+		$stored_locale = get_option( $this->option_locale );
+		if ( empty( $stored_locale ) ) {
+			$persist_language_table = true;
+		} else {
+			$this->locale = array_merge( $this->locale, $stored_locale );
+		}
 
-			$this->set_languages();
+		/**
+		 * Persist the hard-coded defaults when the options did not exist yet.
+		 */
+		if ( $persist_language_table ) {
 			$this->init_language_table();
-
 		}
 
 		/**
@@ -787,7 +804,10 @@ class WPGlobus_Config {
 		/**
 		 * Get en_language_name
 		 */
-		$this->en_language_name = get_option( $this->option_en_language_names );
+		$stored_en_language_name = get_option( $this->option_en_language_names );
+		if ( ! empty( $stored_en_language_name ) ) {
+			$this->en_language_name = array_merge( $this->en_language_name, $stored_en_language_name );
+		}
 
 		/**
 		 * Get option 'show_flag_name'
@@ -904,11 +924,13 @@ class WPGlobus_Config {
 		}
 
 		/**
-		 * Get flag files without path
+		 * Get flag files without path.
+		 * Overlay stored flags on the seeded defaults so any missing key keeps
+		 * its default flag.
 		 */
 		$option = get_option( $this->option_flags );
 		if ( ! empty( $option ) ) {
-			$this->flag = $option;
+			$this->flag = array_merge( $this->flag, $option );
 		}
 
 		/**

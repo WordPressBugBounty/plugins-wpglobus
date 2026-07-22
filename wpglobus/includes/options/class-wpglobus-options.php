@@ -879,22 +879,26 @@ class WPGlobus_Options {
 
 		$tab_content = array();
 
-		$_ = $this->recommend_wpg_plus();
+		$_ = $this->recommend_tiv_globus();
 		if ( count( $_ ) ) {
 			$tab_content[] = $_;
 		}
-		$_ = $this->recommend_wpg_wc();
-		if ( count( $_ ) ) {
-			$tab_content[] = $_;
-		}
+		// $_ = $this->recommend_wpg_plus();
+		// if ( count( $_ ) ) {
+		// 	$tab_content[] = $_;
+		// }
+		// $_ = $this->recommend_wpg_wc();
+		// if ( count( $_ ) ) {
+		// 	$tab_content[] = $_;
+		// }
 		// $_ = $this->recommend_wpg_mc();
 		// if ( count( $_ ) ) {
 		// 	$tab_content[] = $_;
 		// }
-		$_ = $this->recommend_wpg_store();
-		if ( count( $_ ) ) {
-			$tab_content[] = $_;
-		}
+		// $_ = $this->recommend_wpg_store();
+		// if ( count( $_ ) ) {
+		// 	$tab_content[] = $_;
+		// }
 
 		if ( ! count( $tab_content ) ) {
 			return array();
@@ -905,6 +909,52 @@ class WPGlobus_Options {
 			'title'       => __( 'We Recommend...', 'wpglobus' ),
 			'icon'        => 'dashicons dashicons-megaphone',
 			'fields'      => $tab_content,
+		);
+	}
+
+	/**
+	 * Recommend: TIV Globus (successor to WPGlobus).
+	 *
+	 * @return array
+	 */
+	protected function recommend_tiv_globus() {
+
+		if ( defined( 'TIV_GLOBUS_VERSION' ) || $this->is_plugin_installed( 'tiv-globus' ) ) {
+			return array();
+		}
+
+		$id  = 'recommend_tiv_globus';
+		$url = $this->url_ga( WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/', $id );
+
+		ob_start();
+
+		?>
+		<div class="wpglobus-recommend-container">
+			<div class="wpglobus-recommend-logo grid__item">
+				<img src="<?php echo esc_url( WPGlobus::plugin_dir_url() ); ?>includes/css/images/tiv-globus.png"
+						alt=""/>
+			</div>
+			<div class="grid__item">
+				<h3><?php esc_html_e( 'TIV Globus', 'wpglobus' ); ?></h3>
+				<p><strong>
+						<?php esc_html_e( 'TIV Globus is the successor to WPGlobus - one plugin that combines the core translation engine, the Plus features, and full WooCommerce support, on the WooCommerce marketplace.', 'wpglobus' ); ?>
+					</strong></p>
+				<p>
+					<?php esc_html_e( 'All new development happens in TIV Globus. It reads your existing WPGlobus translations, so switching keeps your content intact.', 'wpglobus' ); ?>
+				</p>
+				<a class="button button-primary" href="<?php echo esc_url( $url ); ?>" target="_blank">
+					<?php esc_html_e( 'Learn about TIV Globus', 'wpglobus' ); ?>
+				</a>
+			</div>
+		</div>
+		<?php
+
+		$content_body = ob_get_clean();
+
+		return array(
+			'id'   => $id . '_content',
+			'type' => 'wpglobus_info',
+			'desc' => $content_body,
 		);
 	}
 

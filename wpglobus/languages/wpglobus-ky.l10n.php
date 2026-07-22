@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>NULL,'plural-forms'=>'nplurals=1; plural=0;','language'=>'ky','project-id-version'=>'WPGlobus Multilingual','pot-creation-date'=>'2026-02-01 02:55+0000','po-revision-date'=>'2015-09-03 17:28+0000','messages'=>[]];

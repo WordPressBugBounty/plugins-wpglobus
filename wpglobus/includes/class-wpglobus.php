@@ -745,10 +745,16 @@ class WPGlobus {
 					'enqueue_wpglobus_js',
 			), 1000 );
 
-			if ( WPGlobus_WP::is_pagenow( 'plugin-install.php' ) ) {
-				require_once 'admin/class-wpglobus-plugin-install.php';
-				WPGlobus_Plugin_Install::controller();
-			}
+			/**
+			 * Retired: injected premium-extension cards on Plugins > Add New (search "wpglobus").
+			 * The WPGlobus premium add-ons are superseded by TIV Globus; this promo screen is
+			 * disabled. Kept commented for reference.
+			 *
+			 * if ( WPGlobus_WP::is_pagenow( 'plugin-install.php' ) ) {
+			 *     require_once 'admin/class-wpglobus-plugin-install.php';
+			 *     WPGlobus_Plugin_Install::controller();
+			 * }
+			 */
 		} else {
 
 			/**
@@ -1197,7 +1203,7 @@ class WPGlobus {
 	}
 
 	/**
-	 * Set transient wpglobus_activated after activated plugin @see on_admin_init()
+	 * Run `on_activate` when this plugin is activated (hooked to `activated_plugin`).
 	 *
 	 * @param string $plugin
 	 *
@@ -1212,13 +1218,6 @@ class WPGlobus {
 			$options['plugin'] = $plugin;
 			$options['action'] = 'update';
 			self::Config()->on_activate( null, $options );
-
-			/**
-			 * BS
-			 *
-			 * @noinspection SummerTimeUnsafeTimeManipulationInspection
-			 */
-			set_transient( 'wpglobus_activated', '', 60 * 60 * 24 );
 		}
 	}
 
@@ -1792,7 +1791,7 @@ class WPGlobus {
 					 */
 					$page_action                       = 'taxonomy-edit';
 					$data['multilingualSlug']['title'] =
-							'<div class=""><a href="' . WPGlobus_Utils::url_wpglobus_site() . 'product/wpglobus-plus/#taxonomies" target="_blank">' . esc_html__( 'Need a multilingual slug?', 'wpglobus' ) . '</a></div>';
+							'<div class=""><a href="' . WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/" target="_blank">' . esc_html__( 'Translate slugs with TIV Globus', 'wpglobus' ) . '</a></div>';
 				} else {
 					/**
 					 * For example url: edit-tags.php?taxonomy=category
@@ -2133,19 +2132,13 @@ class WPGlobus {
 				 */
 				$l10n                           = array();
 				$l10n['imageWidget']            = array();
-				$l10n['imageWidget']['suggest'] =
-						sprintf( // translators: %s are for A tags.
-								esc_html__( 'To have the %1$sImage%2$s widget varying by language,', 'wpglobus' ),
-								'<strong>',
-								'</strong>'
-						) . ' ';
-
-				$l10n['imageWidget']['suggest'] .=
-						sprintf( // translators: %s are for A tags.
-								esc_html__( 'please use the %1$sWPGlobus language widgets%2$s add-on', 'wpglobus' ),
-								'<a href="https://wpglobus.com/product/wpglobus-language-widgets/" target="_blank">',
-								'</a>'
-						);
+				/**
+				 * Removed: per-language Image-widget suggestion promoted the retired
+				 * "WPGlobus Language Widgets" add-on. TIV Globus has no per-language
+				 * image widgets, so the suggestion is dropped. Empty string = the widgets
+				 * JS appends nothing (it now guards on a non-empty suggest).
+				 */
+				$l10n['imageWidget']['suggest'] = '';
 
 				$data = array(
 						'wpglobus_version'      => WPGLOBUS_VERSION,
@@ -4271,15 +4264,6 @@ class WPGlobus {
 			 *
 			 * @link  wp-admin/admin.php?page=wpglobus_options&wpglobus-reset-all-options=1
 			 */
-
-			/**
-			 * Check for transient wpglobus_activated
-			 */
-			if ( false !== get_transient( 'wpglobus_activated' ) ) {
-				delete_transient( 'wpglobus_activated' );
-				wp_safe_redirect( admin_url( add_query_arg( array( 'page' => self::PAGE_WPGLOBUS_ABOUT ), 'admin.php' ) ) );
-				exit;
-			}
 
 			if ( ! get_option( 'permalink_structure' ) ) {
 				add_action( 'admin_notices', array( $this, 'admin_notice_permalink_structure' ) );

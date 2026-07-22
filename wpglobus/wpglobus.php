@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WPGlobus
- * Version: 3.0.2
+ * Version: 3.0.3
  * Plugin URI: https://wordpress.org/plugins/wpglobus/
  * Description: A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, widgets and even custom fields - in multiple languages!
  * Author: TIV.NET INC
@@ -10,8 +10,8 @@
  * Developer URI: https://tivnet.com/
  * Text Domain: wpglobus
  * Domain Path: /languages/
- * Requires at least: 6.2
- * Tested up to: 6.9
+ * Requires at least: 6.9
+ * Tested up to: 7.0.2
  * Requires PHP: 7.4
  *
  * Copyright: © TIV.NET INC.
@@ -28,7 +28,52 @@ if ( ! is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 }
 require_once __DIR__ . '/vendor/autoload.php';
 
-define( 'WPGLOBUS_VERSION', '3.0.2' );
+/**
+ * (Disabled) Stand down in favor of TIV Globus.
+ *
+ * WPGlobus and TIV Globus hook the same multilingual surfaces and must never run
+ * at the same time. That mutual exclusion is enforced on the TIV Globus side - its
+ * LegacyGuard goes dormant when WPGlobus is active - so WPGlobus itself does NOT
+ * stand down: it always runs, and TIV Globus steps aside.
+ *
+ * This block implements the reverse policy (WPGlobus standing down instead). It is
+ * kept but intentionally disabled via the "0 &&" guard, so it can be re-enabled if
+ * that decision is ever revisited. Both plugins share the same stored data, so
+ * translations are preserved whichever one stands down.
+ *
+ * @since 3.0.3
+ */
+if ( 0 && defined( 'TIV_GLOBUS_VERSION' ) ) {
+
+	add_action( 'admin_notices', function () {
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
+
+		$plugin = plugin_basename( __FILE__ );
+		$deactivate_url = wp_nonce_url(
+			self_admin_url( 'plugins.php?action=deactivate&plugin=' . rawurlencode( $plugin ) . '&plugin_status=all' ),
+			'deactivate-plugin_' . $plugin
+		);
+		?>
+		<div class="notice notice-error">
+			<p>
+				<strong>WPGlobus is inactive.</strong>
+				TIV Globus - its successor - is active and is handling all multilingual features.
+				Running both at once is not supported, so WPGlobus is standing down.
+			</p>
+			<p>
+				<a href="<?php echo esc_url( $deactivate_url ); ?>">Deactivate WPGlobus</a>
+				to remove this notice.
+			</p>
+		</div>
+		<?php
+	} );
+
+	return;
+}
+
+define( 'WPGLOBUS_VERSION', '3.0.3' );
 define( 'WPGLOBUS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPGLOBUS_AJAX', 'wpglobus-ajax' );
 

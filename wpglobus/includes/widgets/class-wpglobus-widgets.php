@@ -881,7 +881,7 @@ if ( ! class_exists( 'WPGlobus_Widgets' ) ) :
 				'extraLanguages'   => $extra_languages,
 				'currentLanguage'  => (array) self::get_language(),
 				'languageFlagUrl'  => $language_flag_url,
-				'wpgPremiumURL'    => WPGlobus::URL_WPGLOBUS_SHOP,
+				'wpgPremiumURL'    => WPGlobus_Utils::url_wpglobus_site() . 'tiv-globus/',
 				'wpgOptionsURL'    => add_query_arg(
 					array(
 						'page' => 'wpglobus_options',

@@ -645,15 +645,15 @@ msgstr "Для перекладу посилань необхідно актив
 msgid "To use module Publish, please activate it."
 msgstr ""
 
-msgid "Translate permalinks with our premium add-on, WPGlobus Plus!"
-msgstr "Переклад посилань можливий за допомогою WPGlobus-Плюс!"
-
-msgid ""
-"With Publish module, you will be able to write a post in one language and "
-"immediately publish it, not waiting for the translation to other languages."
+msgid "Translate permalinks with TIV Globus, the successor to WPGlobus Plus!"
 msgstr ""
 
-msgid "Go Premium"
+msgid ""
+"With TIV Globus, you can write a post in one language and publish it "
+"immediately, without waiting for the other translations."
+msgstr ""
+
+msgid "Upgrade to TIV Globus"
 msgstr ""
 
 msgid "WPGlobus Recommends:"
@@ -678,6 +678,9 @@ msgstr "Приймайте оплату в декількох валютах!"
 
 msgid "Check it out:"
 msgstr "Інформація - тут:"
+
+msgid "Learn more:"
+msgstr ""
 
 #. translators: %1$s - this plugin name. %2$s - the required PHP version.
 msgid "For %1$s to work correctly, PHP version %2$s or later is required."
@@ -795,21 +798,11 @@ msgstr "Спосіб выбору мови"
 msgid "You cannot disable the main language."
 msgstr "Неможна відключити головну мову."
 
-msgid "Need a multilingual slug?"
-msgstr "Потрібен багатомовний ярлик?"
+msgid "Translate slugs with TIV Globus"
+msgstr ""
 
 msgid "*) Available after the menu is saved."
 msgstr "*) Доступно після збереження меню."
-
-#. translators: %s are for A tags.
-msgid "To have the %1$sImage%2$s widget varying by language,"
-msgstr "Щоб застосувати віджет%1$sЗображення%2$s для декількох мов"
-
-#. translators: %s are for A tags.
-msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
-msgstr ""
-"Ви також можете використовувати розширення %1$sWPGlobus для мовних віджетів"
-"%2$s"
 
 msgid "About"
 msgstr ""
@@ -890,8 +883,8 @@ msgid ""
 "or if you explicitly turned off builder support on the %1$s[%3$s]%2$s tab."
 msgstr ""
 "%1$sStandard/Classic mode%2$s: використовується, коли немає плагінів "
-"`Builder` або якщо ви явно відключили підтримку компонентів на вкладці"
-"%1$s[%3$s]%2$s."
+"`Builder` або якщо ви явно відключили підтримку компонентів на "
+"вкладці%1$s[%3$s]%2$s."
 
 #. translators: placeholders for "strong" tags.
 msgid ""
@@ -929,6 +922,23 @@ msgstr "Мови для віджетів"
 
 msgid "We Recommend..."
 msgstr "Рекомендуємо..."
+
+msgid "TIV Globus"
+msgstr ""
+
+msgid ""
+"TIV Globus is the successor to WPGlobus - one plugin that combines the core "
+"translation engine, the Plus features, and full WooCommerce support, on the "
+"WooCommerce marketplace."
+msgstr ""
+
+msgid ""
+"All new development happens in TIV Globus. It reads your existing WPGlobus "
+"translations, so switching keeps your content intact."
+msgstr ""
+
+msgid "Learn about TIV Globus"
+msgstr ""
 
 msgid ""
 "Our premium add-on, WPGlobus Plus, will add several features to your "
@@ -1205,12 +1215,13 @@ msgstr ""
 
 msgid ""
 "In the REST API response, you can find the %1$stranslation%2$s field, which "
-"shows whether translations exist for the fields %1$stitle%2$s, %1$scontent"
-"%2$s and %1$sexcerpt%2$s or not, for each language. See the screenshot below:"
+"shows whether translations exist for the fields %1$stitle%2$s, "
+"%1$scontent%2$s and %1$sexcerpt%2$s or not, for each language. See the "
+"screenshot below:"
 msgstr ""
 "У відповіді REST API ви знайдете поле %1$stranslation%2$s, яке дає "
-"можливість перевірити, чи існують переклади полів%1$s title%2$s, %1$scontent"
-"%2$s і%1$sexcerpt%2$s для кожної мови. Дивіться.скріншот нижче:"
+"можливість перевірити, чи існують переклади полів%1$s title%2$s, "
+"%1$scontent%2$s і%1$sexcerpt%2$s для кожної мови. Дивіться.скріншот нижче:"
 
 msgid "Description:"
 msgstr "Опис:"
@@ -1387,10 +1398,6 @@ msgstr "Використовувати як багатомовне з%1$sWPGlobu
 msgid "Multilingual"
 msgstr "Багатомовне"
 
-#. translators: %s are for A tags.
-msgid "To use this field, please activate the %1$sACF Plus%2$s module"
-msgstr "Для використання поля потрібно активувати модуль %1$sACF Plus%2$s"
-
 msgid ""
 "Bulk editing of the multilingual titles and descriptions is not supported by "
 "the current version."
@@ -1406,6 +1413,39 @@ msgstr ""
 msgid "WPGlobus warning: "
 msgstr "Попередження WPGlobus:"
 
+msgid "https://wordpress.org/plugins/wpglobus/"
+msgstr ""
+
+msgid ""
+"A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
+"widgets and even custom fields - in multiple languages!"
+msgstr ""
+"Багатомовні сайти на ВордПресс. Редагуйте тексти записів, сторінок, меню, "
+"віджетів, і т.д. - відразу на декількох мовах!"
+
+msgid "TIV.NET INC"
+msgstr ""
+
+msgid "https://woocommerce.com/vendor/tiv-net-inc/"
+msgstr ""
+
+#~ msgid "Translate permalinks with our premium add-on, WPGlobus Plus!"
+#~ msgstr "Переклад посилань можливий за допомогою WPGlobus-Плюс!"
+
+#~ msgid "Need a multilingual slug?"
+#~ msgstr "Потрібен багатомовний ярлик?"
+
+#~ msgid "To have the %1$sImage%2$s widget varying by language,"
+#~ msgstr "Щоб застосувати віджет%1$sЗображення%2$s для декількох мов"
+
+#~ msgid "please use the %1$sWPGlobus language widgets%2$s add-on"
+#~ msgstr ""
+#~ "Ви також можете використовувати розширення %1$sWPGlobus для мовних "
+#~ "віджетів%2$s"
+
+#~ msgid "To use this field, please activate the %1$sACF Plus%2$s module"
+#~ msgstr "Для використання поля потрібно активувати модуль %1$sACF Plus%2$s"
+
 #~ msgid "Multilingual Everything!"
 #~ msgstr "Все - на всіх мовах!"
 
@@ -1417,13 +1457,6 @@ msgstr "Попередження WPGlobus:"
 
 #~ msgid "https://github.com/WPGlobus/WPGlobus"
 #~ msgstr "https://github.com/WPGlobus/WPGlobus"
-
-#~ msgid ""
-#~ "A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, "
-#~ "widgets and even custom fields - in multiple languages!"
-#~ msgstr ""
-#~ "Багатомовні сайти на ВордПресс. Редагуйте тексти записів, сторінок, меню, "
-#~ "віджетів, і т.д. - відразу на декількох мовах!"
 
 #~ msgid "https://wpglobus.com/"
 #~ msgstr "https://wpglobus.com/ru/"

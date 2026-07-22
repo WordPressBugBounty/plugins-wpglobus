@@ -469,7 +469,9 @@
 			
 			// @since 2.6.0
 			if ( 'undefined' === typeof api.imageWidgets[wID] ) {
-				$('<hr /><div class="">'+WPGlobusWidgets.l10n['imageWidget']['suggest']+'</div>').appendTo('#'+wID+' .widget-inside');
+				if ( WPGlobusWidgets.l10n['imageWidget']['suggest'] ) {
+					$('<hr /><div class="">'+WPGlobusWidgets.l10n['imageWidget']['suggest']+'</div>').appendTo('#'+wID+' .widget-inside');
+				}
 				api.imageWidgets[wID] = true;
 			}
 		},
