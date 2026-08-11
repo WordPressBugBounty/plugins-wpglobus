@@ -257,27 +257,41 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 
 			/**
 			 * Post title.
+			 *
+			 * The block editor sends PARTIAL updates: a content-only save omits
+			 * `title`, so WP leaves `post_title` unset on the prepared stdClass.
+			 * We must tell "the user cleared this language's title" (field present,
+			 * empty) apart from "the title was not touched" (field absent):
+			 *
+			 * - present  -> merge the incoming value (empty removes just this
+			 *   language, keeping the others);
+			 * - absent   -> re-derive the current language's stored title so the
+			 *   merge writes every language back unchanged.
+			 *
+			 * Injecting '' for an absent title dropped the current language and
+			 * wiped the whole title when only the default language existed -
+			 * the data-loss regression reported in 3.0.3. This mirrors the
+			 * excerpt handling below.
+			 *
+			 * @since 3.0.4
 			 */
-			if ( ! empty( $prepared_post->post_title ) ) {
+			if ( isset( $prepared_post->post_title ) ) {
 				$fields['post_title'] = $prepared_post->post_title;
 			} else {
-				/**
-				 * Always merge the title, even when empty for the current language.
-				 * Otherwise clearing one language's title skips the merge and the empty
-				 * value overwrites (wipes) all the other languages.
-				 *
-				 * @since 3.0.3
-				 */
-				$fields['post_title'] = '';
+				$fields['post_title'] = WPGlobus_Core::text_filter( $_post->post_title, $builder_language, WPGlobus::RETURN_EMPTY );
 			}
 
 			/**
-			 * Post content.
+			 * Post content. Same partial-update handling as the title: a title-only
+			 * save omits `content`, so keep the stored value per language instead of
+			 * overwriting the other languages with an empty string.
+			 *
+			 * @since 3.0.4
 			 */
-			if ( ! empty( $prepared_post->post_content ) ) {
+			if ( isset( $prepared_post->post_content ) ) {
 				$fields['post_content'] = $prepared_post->post_content;
 			} else {
-				$fields['post_content'] = '';
+				$fields['post_content'] = WPGlobus_Core::text_filter( $_post->post_content, $builder_language, WPGlobus::RETURN_EMPTY );
 			}
 
 			/**

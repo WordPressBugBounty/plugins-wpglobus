@@ -1,5 +1,10 @@
 *** WPGlobus - Multilingual WordPress ***
 
+2026-08-10 - version 3.0.4
+* Fix: Block editor (Gutenberg) - saving a page or post while editing only the content no longer clears the title. This corrects a data-loss regression introduced in 3.0.3.
+* Fix: Block editor (Gutenberg) - editing only the title no longer clears the content.
+* Fix: On sites whose address includes a port number (for example a staging server on `host:8080`), the language switcher links and hreflang tags now build the correct per-language URLs instead of all pointing to the home page.
+
 2026-07-20 - version 3.0.3
 * Added: TIV Globus (Pro) - the successor to WPGlobus Plus and WooCommerce WPGlobus. In-plugin recommendations and the plugin description now point to it.
 * Fix: PHP warnings ("Undefined array key") in the admin bar language switcher when the stored language settings were incomplete.

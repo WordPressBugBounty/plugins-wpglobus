@@ -4,7 +4,7 @@ Tags: WPGlobus, localization, multilanguage, multilingual, translate
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.3
+Stable tag: 3.0.4
 License: GPL-3.0-or-later
 License URI: https://spdx.org/licenses/GPL-3.0-or-later.html
 
@@ -124,6 +124,11 @@ Yes. TIV Globus reads the same storage format as WPGlobus, so your existing tran
 No. TIV Globus is sold on the WooCommerce.com marketplace, but it works on any site - with or without WooCommerce.
 
 == Changelog ==
+
+= 3.0.4 =
+* Fix: Block editor (Gutenberg) - saving a page or post while editing only the content no longer clears the title. This corrects a data-loss regression introduced in 3.0.3.
+* Fix: Block editor (Gutenberg) - editing only the title no longer clears the content.
+* Fix: On sites whose address includes a port number (for example a staging server on `host:8080`), the language switcher links and hreflang tags now build the correct per-language URLs instead of all pointing to the home page.
 
 = 3.0.3 =
 * Added: TIV Globus (Pro) - the successor to WPGlobus Plus and WooCommerce WPGlobus. In-plugin recommendations and the plugin description now point to it.

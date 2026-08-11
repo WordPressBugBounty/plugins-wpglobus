@@ -100,9 +100,21 @@ class WPGlobus_Utils {
 		$path_home = wp_parse_url( $home_url, PHP_URL_PATH );
 		$path_home = is_string( $path_home ) ? str_replace( '/', '\/', $path_home ) : '';
 
+		/**
+		 * Allow an optional `:port` after the domain, so home URLs that run on a
+		 * non-standard port (e.g. `http://example.com:8080` or an internal
+		 * `http://10.45.16.238:8001`) still match. `domain_tld()` drops the port
+		 * (via `parse_url`); without this the regex matched the host but could not
+		 * consume the trailing `:port`, the whole pattern failed, and the URL was
+		 * returned unlocalized (no language prefix). The port stays inside the
+		 * captured group, so it is preserved in the output.
+		 *
+		 * @since 3.0.4
+		 */
 		$re_host_part =
 			'(https?:\/\/(?:.+\.)?' .
 			str_replace( '.', '\.', $home_domain_tld ) .
+			'(?::\d+)?' .
 			$path_home
 			. ')';
 
