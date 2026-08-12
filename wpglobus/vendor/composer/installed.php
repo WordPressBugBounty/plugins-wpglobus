@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'wpglobus/wpglobus',
-        'pretty_version' => '3.0.4',
-        'version' => '3.0.4.0',
+        'pretty_version' => '3.0.5',
+        'version' => '3.0.5.0',
         'reference' => null,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -29,8 +29,8 @@
             'dev_requirement' => false,
         ),
         'wpglobus/wpglobus' => array(
-            'pretty_version' => '3.0.4',
-            'version' => '3.0.4.0',
+            'pretty_version' => '3.0.5',
+            'version' => '3.0.5.0',
             'reference' => null,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',

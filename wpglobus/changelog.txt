@@ -1,5 +1,8 @@
 *** WPGlobus - Multilingual WordPress ***
 
+2026-08-12 - version 3.0.5
+* Tested up to: 7.0.4
+
 2026-08-10 - version 3.0.4
 * Fix: Block editor (Gutenberg) - saving a page or post while editing only the content no longer clears the title. This corrects a data-loss regression introduced in 3.0.3.
 * Fix: Block editor (Gutenberg) - editing only the title no longer clears the content.

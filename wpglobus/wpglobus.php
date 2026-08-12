@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WPGlobus
- * Version: 3.0.4
+ * Version: 3.0.5
  * Plugin URI: https://wordpress.org/plugins/wpglobus/
  * Description: A WordPress Globalization / Multilingual Plugin. Posts, pages, menus, widgets and even custom fields - in multiple languages!
  * Author: TIV.NET INC
@@ -11,7 +11,7 @@
  * Text Domain: wpglobus
  * Domain Path: /languages/
  * Requires at least: 6.9
- * Tested up to: 7.0.3
+ * Tested up to: 7.0.4
  * Requires PHP: 7.4
  *
  * Copyright: © TIV.NET INC.
@@ -73,7 +73,7 @@ if ( 0 && defined( 'TIV_GLOBUS_VERSION' ) ) {
 	return;
 }
 
-define( 'WPGLOBUS_VERSION', '3.0.4' );
+define( 'WPGLOBUS_VERSION', '3.0.5' );
 define( 'WPGLOBUS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'WPGLOBUS_AJAX', 'wpglobus-ajax' );
 
