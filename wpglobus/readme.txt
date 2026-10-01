@@ -4,7 +4,7 @@ Tags: WPGlobus, localization, multilanguage, multilingual, translate
 Requires at least: 6.9
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.5
+Stable tag: 3.0.6
 License: GPL-3.0-or-later
 License URI: https://spdx.org/licenses/GPL-3.0-or-later.html
 
@@ -124,6 +124,10 @@ Yes. TIV Globus reads the same storage format as WPGlobus, so your existing tran
 No. TIV Globus is sold on the WooCommerce.com marketplace, but it works on any site - with or without WooCommerce.
 
 == Changelog ==
+
+= 3.0.6 =
+* Fix: Block editor (Gutenberg) - saving a post or page that has classic meta boxes (for example, from ACF) no longer strips backslashes from the content. This corrects a regression introduced in 3.0.3 that could break block data such as line breaks and encoded characters. (Props @homepagehelden)
+* Tested up to: 7.1.2
 
 = 3.0.5 =
 * Tested up to: 7.0.4

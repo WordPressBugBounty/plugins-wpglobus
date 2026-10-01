@@ -384,7 +384,12 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 				 * they cannot overwrite the translations - e.g. wiping the title to
 				 * empty, or copying one language's text into another.
 				 *
+				 * The filter receives and must return SLASHED data (core runs
+				 * `wp_unslash()` on the result), while the DB values are raw - so
+				 * slash them, or every backslash in the content is stripped.
+				 *
 				 * @since 3.0.3
+				 * @since 3.0.6 Slash the stored values.
 				 */
 				if ( ! empty( $postarr['ID'] ) ) {
 					global $wpdb;
@@ -393,7 +398,7 @@ if ( ! class_exists( 'WPGlobus_Gutenberg_Update_Post' ) ) :
 					if ( $_stored ) {
 						foreach ( array( 'post_title', 'post_content', 'post_excerpt' ) as $_field ) {
 							if ( isset( $data[ $_field ] ) ) {
-								$data[ $_field ] = $_stored->$_field;
+								$data[ $_field ] = wp_slash( $_stored->$_field );
 							}
 						}
 					}
